@@ -59,3 +59,5 @@ C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio cola
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.pdb
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\ref\UI.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.InicioSesion.resources
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.Registro.resources
