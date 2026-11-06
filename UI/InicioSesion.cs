@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlantillaCapas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,38 @@ namespace UI
         public InicioSesion()
         {
             InitializeComponent();
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Inicio de sesión exitoso
+                Form1 inicio = new Form1();
+                inicio.Show();
+                this.Hide();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Instancio formulario
+                Registro registro = new Registro();
+                DialogResult resultado = registro.ShowDialog();
+
+                registro.Dispose();  
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al abrir formulario de registro");
+            }
         }
     }
 }

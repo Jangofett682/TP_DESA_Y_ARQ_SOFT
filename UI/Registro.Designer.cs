@@ -46,7 +46,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(45, 87);
+            label1.Location = new Point(23, 67);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 293);
+            label2.Location = new Point(23, 273);
             label2.Name = "label2";
             label2.Size = new Size(125, 20);
             label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(45, 147);
+            label3.Location = new Point(23, 127);
             label3.Name = "label3";
             label3.Size = new Size(38, 20);
             label3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(45, 211);
+            label4.Location = new Point(23, 191);
             label4.Name = "label4";
             label4.Size = new Size(83, 20);
             label4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(45, 361);
+            label5.Location = new Point(23, 341);
             label5.Name = "label5";
             label5.Size = new Size(123, 20);
             label5.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(187, 84);
+            txtUsuario.Location = new Point(165, 64);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(205, 27);
             txtUsuario.TabIndex = 5;
@@ -98,35 +98,35 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(187, 147);
+            txtMail.Location = new Point(165, 127);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(205, 27);
             txtMail.TabIndex = 6;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(187, 208);
+            txtContraseña.Location = new Point(165, 188);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(205, 27);
             txtContraseña.TabIndex = 7;
             // 
             // txtNombreApellido
             // 
-            txtNombreApellido.Location = new Point(187, 293);
+            txtNombreApellido.Location = new Point(165, 273);
             txtNombreApellido.Name = "txtNombreApellido";
             txtNombreApellido.Size = new Size(205, 27);
             txtNombreApellido.TabIndex = 8;
             // 
             // txtSaldo
             // 
-            txtSaldo.Location = new Point(187, 361);
+            txtSaldo.Location = new Point(165, 341);
             txtSaldo.Name = "txtSaldo";
             txtSaldo.Size = new Size(205, 27);
             txtSaldo.TabIndex = 9;
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(301, 425);
+            btnRegistrarse.Location = new Point(256, 405);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(124, 56);
             btnRegistrarse.TabIndex = 10;
@@ -135,7 +135,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(122, 425);
+            btnCancelar.Location = new Point(24, 405);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(124, 56);
             btnCancelar.TabIndex = 11;
@@ -145,7 +145,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(187, 29);
+            label6.Location = new Point(165, 9);
             label6.Name = "label6";
             label6.Size = new Size(77, 20);
             label6.TabIndex = 12;
@@ -155,7 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(504, 502);
+            ClientSize = new Size(413, 502);
             Controls.Add(label6);
             Controls.Add(btnCancelar);
             Controls.Add(btnRegistrarse);
@@ -170,6 +170,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Registro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro";
             ResumeLayout(false);
             PerformLayout();

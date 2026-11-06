@@ -77,6 +77,7 @@
             btnIniciarSesion.TabIndex = 4;
             btnIniciarSesion.Text = "Iniciar sesión";
             btnIniciarSesion.UseVisualStyleBackColor = true;
+            btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
             // btnRegistrarse
             // 
@@ -86,6 +87,7 @@
             btnRegistrarse.TabIndex = 5;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = true;
+            btnRegistrarse.Click += btnRegistrarse_Click;
             // 
             // label3
             // 
