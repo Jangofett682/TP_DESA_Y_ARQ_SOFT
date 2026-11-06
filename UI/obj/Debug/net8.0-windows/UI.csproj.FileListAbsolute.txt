@@ -32,3 +32,30 @@ D:\Arq y diseño software\Plantilla capas\UI\obj\Debug\net8.0-windows\UI.pdb
 D:\Arq y diseño software\Plantilla capas\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
 D:\Arq y diseño software\Plantilla capas\UI\obj\Debug\net8.0-windows\ref\UI.dll
 D:\Arq y diseño software\Plantilla capas\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\UI.exe
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\UI.deps.json
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\UI.runtimeconfig.json
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\UI.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\UI.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\BLL.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\DAL.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\Entity.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\Mapper.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\BLL.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\Entity.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\Mapper.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\bin\Debug\net8.0-windows\DAL.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.csproj.AssemblyReference.cache
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\PlantillaCapas.Form1.resources
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.AssemblyInfo.cs
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.csproj.CoreCompileInputs.cache
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.sourcelink.json
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.csproj.Up2Date
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\refint\UI.dll
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.pdb
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\ref\UI.dll

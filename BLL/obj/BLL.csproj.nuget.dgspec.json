@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Arq y diseño software\\Plantilla capas\\BLL\\BLL.csproj": {}
+    "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "E:\\Arq y diseño software\\Plantilla capas\\BLL\\BLL.csproj": {
+    "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Arq y diseño software\\Plantilla capas\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\Navegador\\.nuget\\packages\\",
-        "outputPath": "E:\\Arq y diseño software\\Plantilla capas\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\ragoj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Navegador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ragoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,22 +26,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Navegador\\SQLClient": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj"
               },
-              "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj"
               },
-              "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\Mapper.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\Mapper.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj"
               }
             }
           }
@@ -56,10 +55,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -77,24 +77,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj": {
+    "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Navegador\\.nuget\\packages\\",
-        "outputPath": "E:\\Arq y diseño software\\Plantilla capas\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\ragoj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Navegador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ragoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -103,16 +103,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Navegador\\SQLClient": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj"
               }
             }
           }
@@ -127,10 +126,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -148,24 +148,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj": {
+    "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\Navegador\\.nuget\\packages\\",
-        "outputPath": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\ragoj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Navegador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ragoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -174,12 +174,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Navegador\\SQLClient": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -194,10 +193,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -215,24 +215,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\Mapper.csproj": {
+    "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\Mapper.csproj",
+        "projectUniqueName": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj",
         "projectName": "Mapper",
-        "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\Mapper.csproj",
-        "packagesPath": "C:\\Users\\Navegador\\.nuget\\packages\\",
-        "outputPath": "E:\\Arq y diseño software\\Plantilla capas\\Mapper\\obj\\",
+        "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj",
+        "packagesPath": "C:\\Users\\ragoj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Navegador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ragoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -241,19 +241,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\Navegador\\SQLClient": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\DAL\\DAL.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DAL.csproj"
               },
-              "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj": {
-                "projectPath": "E:\\Arq y diseño software\\Plantilla capas\\Entity\\Entity.csproj"
+              "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\Entity.csproj"
               }
             }
           }
@@ -268,10 +267,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -289,7 +289,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
