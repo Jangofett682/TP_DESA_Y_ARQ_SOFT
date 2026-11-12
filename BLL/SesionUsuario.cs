@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BLL
 {
     //Singleton
-    internal class SesionUsuario
+    public class SesionUsuario
     {
     }
 }

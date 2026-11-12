@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mapper
 {
-    internal class JuegoMapper
+    public class JuegoMapper
     {
     }
 }

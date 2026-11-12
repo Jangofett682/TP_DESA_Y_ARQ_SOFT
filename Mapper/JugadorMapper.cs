@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace Mapper
 {
-    internal class UsuarioDAO
+    public class JugadorMapper
     {
     }
 }
