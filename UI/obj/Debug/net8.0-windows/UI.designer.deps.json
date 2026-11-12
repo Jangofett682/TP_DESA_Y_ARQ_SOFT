@@ -5,7 +5,42 @@
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v8.0": {}
+    ".NETCoreApp,Version=v8.0": {
+      "System.Configuration.ConfigurationManager/11.0.0": {
+        "dependencies": {
+          "System.Security.Cryptography.ProtectedData": "11.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.53018"
+          }
+        }
+      },
+      "System.Security.Cryptography.ProtectedData/11.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.26.53018"
+          }
+        }
+      }
+    }
   },
-  "libraries": {}
+  "libraries": {
+    "System.Configuration.ConfigurationManager/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EECIyxAPpkd/qek46ZGH/EyfEJHLS5BUxi627flzzoNsO6e4dpLC68Xj8Nl+YxFcfzBMWLu9/tyRKufbTshBAQ==",
+      "path": "system.configuration.configurationmanager/11.0.0",
+      "hashPath": "system.configuration.configurationmanager.11.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.ProtectedData/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iS9iyAMwLDPFBzTdcREDkzRBYmwy7aENYl7EXxAvnNJNCbl7+UVRgJfWaVLtVjSeDmT3JIItgGODmuAPljXFww==",
+      "path": "system.security.cryptography.protecteddata/11.0.0",
+      "hashPath": "system.security.cryptography.protecteddata.11.0.0.nupkg.sha512"
+    }
+  }
 }

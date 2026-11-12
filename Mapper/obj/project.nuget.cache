@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9aj64E1ld44=",
+  "dgSpecHash": "gb6hkyhYzGs=",
   "success": true,
   "projectFilePath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\Mapper.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.configuration.configurationmanager\\11.0.0\\system.configuration.configurationmanager.11.0.0.nupkg.sha512",
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.security.cryptography.protecteddata\\11.0.0\\system.security.cryptography.protecteddata.11.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

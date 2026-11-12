@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Xdgfbw/47oQ=",
+  "dgSpecHash": "16/lHp7rfdg=",
   "success": true,
   "projectFilePath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\BLL.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.configuration.configurationmanager\\11.0.0\\system.configuration.configurationmanager.11.0.0.nupkg.sha512",
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512",
+    "C:\\Users\\ragoj\\.nuget\\packages\\system.security.cryptography.protecteddata\\11.0.0\\system.security.cryptography.protecteddata.11.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
