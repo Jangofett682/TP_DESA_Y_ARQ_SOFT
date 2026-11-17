@@ -1,4 +1,6 @@
-﻿using PlantillaCapas;
+﻿using BLL;
+using Entity;
+using PlantillaCapas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace UI
 {
     public partial class InicioSesion : Form
     {
+        JugadorBusiness jugadorBusiness = new JugadorBusiness();
         public InicioSesion()
         {
             InitializeComponent();
@@ -22,14 +25,20 @@ namespace UI
         {
             try
             {
-                //Inicio de sesión exitoso
-                Form1 inicio = new Form1();
-                inicio.Show();
-                this.Hide();
+                JugadorEntity jugadorAutenticado = jugadorBusiness.Autenticar(txtUsuario.Text);
+
+                if(jugadorAutenticado != null)
+                {
+                    SesionJugador.GetInstance().IniciarSesion(jugadorAutenticado);
+                    //Inicio de sesión exitoso
+                    Form1 inicio = new Form1();
+                    inicio.Show();
+                    this.Hide();
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error al iniciar sesión, regístrese de ser necesario");
             }
 
         }
@@ -42,7 +51,13 @@ namespace UI
                 Registro registro = new Registro();
                 DialogResult resultado = registro.ShowDialog();
 
-                registro.Dispose();  
+                using(Registro formReg =  new Registro())
+                {
+                    if(formReg.DialogResult == DialogResult.OK)
+                    {
+                        MessageBox.Show("Registro exitoso. Proceda a iniciar sesión");
+                    }
+                }
             }
             catch(Exception ex)
             {

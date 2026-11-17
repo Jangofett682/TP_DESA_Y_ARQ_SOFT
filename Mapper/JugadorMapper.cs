@@ -14,6 +14,10 @@ namespace Mapper
         {
             try
             {
+                if(jugador == null)
+                {
+                    return null;
+                }
                 return new JugadorEntity
                 {
                     NombreUsuario = jugador.NombreUsuario,
@@ -64,5 +68,6 @@ namespace Mapper
             }
             return listaJugadores.Select(j => Map(j)).ToList();
         }
+
     }
 }

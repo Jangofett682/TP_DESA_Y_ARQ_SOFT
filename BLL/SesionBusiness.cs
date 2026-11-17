@@ -12,6 +12,7 @@ namespace BLL
     public class SesionBusiness
     {
         SesionDAO aplicacionDAO = new SesionDAO();
+        ServidorDAO servidorDAO = new ServidorDAO();
         public List<SesionEntity> GetAll()
         {
             try
@@ -57,6 +58,28 @@ namespace BLL
             if (sesion.IdSesion <= 0)
             {
                 throw new Exception("Debe seleccionar una categoría con id válido");
+            }
+        }
+
+        public void GuardarSesion(SesionEntity sesion)
+        {
+            try
+            {
+                if(sesion.HorasReservadas <= 0)
+                {
+                    throw new Exception("Debe reservar más de 0 hs");
+                }
+                //Obtenemos precio por hora
+                ServidorEntity servidor = servidorDAO.ObtenerPorID(sesion.IdSesion);
+
+                if(servidor == null)
+                {
+                    throw new Exception("El servidor no existe");
+                }
+            }
+            catch(Exception ex)
+            {
+                throw;
             }
         }
 

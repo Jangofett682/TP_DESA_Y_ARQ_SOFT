@@ -58,6 +58,31 @@ namespace DAL
             }
         }
 
+        public void RegistrarSesionSaldo(SesionEntity sesion, double nuevoSaldo)
+        {
+            try
+            {
+                using(var db = new CloudGamingContext())
+                {
+                    var nuevaSesionBD = SesionMapper.Map(sesion);
+                    db.Sesión.Add(nuevaSesionBD);
+
+                    //Actualización saldo
+                    var jugadorBD = db.Jugador
+                        .FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
+                    if (jugadorBD != null)
+                    {
+                        jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
+
         //Método BuscarPorID, devuelve SesionEntity
         public SesionEntity BuscarPorID(int id)
         {

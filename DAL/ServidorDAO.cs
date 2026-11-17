@@ -23,5 +23,22 @@ namespace DAL
                 throw;
             }
         }
+
+        public ServidorEntity ObtenerPorID(int idServidor)
+        {
+            try
+            {
+                using (var db = new CloudGamingContext())
+                {
+                    var servidorBD = db.Servidor
+                        .FirstOrDefault(s => s.IdServidor == idServidor);
+                    return ServidorMapper.Map(servidorBD);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

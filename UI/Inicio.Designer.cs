@@ -34,10 +34,24 @@
             dgvJuegos = new DataGridView();
             lblUsuario = new Label();
             btnCambiarCuenta = new Button();
+            txtCargarSaldo = new Button();
+            groupBox3 = new GroupBox();
+            this.txtMontoTotalAlta = new TextBox();
+            this.txtHorasReservadasAlta = new TextBox();
+            txtUsuarioAlta = new TextBox();
+            btnAgregarSesion = new Button();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            ServidorIDAlta = new ComboBox();
+            label2 = new Label();
+            label1 = new Label();
+            this.cbJuegoIDAlta = new ComboBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServidores).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvJuegos).BeginInit();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -89,7 +103,7 @@
             // 
             // btnCambiarCuenta
             // 
-            btnCambiarCuenta.Location = new Point(298, 4);
+            btnCambiarCuenta.Location = new Point(1004, 4);
             btnCambiarCuenta.Name = "btnCambiarCuenta";
             btnCambiarCuenta.Size = new Size(149, 31);
             btnCambiarCuenta.TabIndex = 3;
@@ -97,11 +111,135 @@
             btnCambiarCuenta.UseVisualStyleBackColor = true;
             btnCambiarCuenta.Click += btnCambiarCuenta_Click;
             // 
+            // txtCargarSaldo
+            // 
+            txtCargarSaldo.Location = new Point(1164, 4);
+            txtCargarSaldo.Name = "txtCargarSaldo";
+            txtCargarSaldo.Size = new Size(149, 31);
+            txtCargarSaldo.TabIndex = 4;
+            txtCargarSaldo.Text = "Cargar saldo";
+            txtCargarSaldo.UseVisualStyleBackColor = true;
+            txtCargarSaldo.Click += txtCargarSaldo_Click;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(this.txtMontoTotalAlta);
+            groupBox3.Controls.Add(this.txtHorasReservadasAlta);
+            groupBox3.Controls.Add(txtUsuarioAlta);
+            groupBox3.Controls.Add(btnAgregarSesion);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(label4);
+            groupBox3.Controls.Add(label3);
+            groupBox3.Controls.Add(ServidorIDAlta);
+            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(label1);
+            groupBox3.Controls.Add(this.cbJuegoIDAlta);
+            groupBox3.Location = new Point(881, 84);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(432, 430);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Nueva sesión";
+            // 
+            // txtMontoTotalAlta
+            // 
+            this.txtMontoTotalAlta.Location = new Point(204, 295);
+            this.txtMontoTotalAlta.Name = "txtMontoTotalAlta";
+            this.txtMontoTotalAlta.Size = new Size(191, 27);
+            this.txtMontoTotalAlta.TabIndex = 10;
+            // 
+            // txtHorasReservadasAlta
+            // 
+            this.txtHorasReservadasAlta.Location = new Point(204, 235);
+            this.txtHorasReservadasAlta.Name = "txtHorasReservadasAlta";
+            this.txtHorasReservadasAlta.Size = new Size(191, 27);
+            this.txtHorasReservadasAlta.TabIndex = 9;
+            // 
+            // txtUsuarioAlta
+            // 
+            txtUsuarioAlta.Location = new Point(204, 181);
+            txtUsuarioAlta.Name = "txtUsuarioAlta";
+            txtUsuarioAlta.Size = new Size(191, 27);
+            txtUsuarioAlta.TabIndex = 8;
+            // 
+            // btnAgregarSesion
+            // 
+            btnAgregarSesion.Location = new Point(192, 373);
+            btnAgregarSesion.Name = "btnAgregarSesion";
+            btnAgregarSesion.Size = new Size(143, 29);
+            btnAgregarSesion.TabIndex = 7;
+            btnAgregarSesion.Text = "Agregar sesión";
+            btnAgregarSesion.UseVisualStyleBackColor = true;
+            btnAgregarSesion.Click += btnAgregarSesion_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(83, 295);
+            label5.Name = "label5";
+            label5.Size = new Size(88, 20);
+            label5.TabIndex = 6;
+            label5.Text = "Monto total";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(53, 235);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 20);
+            label4.TabIndex = 5;
+            label4.Text = "Horas reservadas";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(53, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Nombre Usuario";
+            // 
+            // ServidorIDAlta
+            // 
+            ServidorIDAlta.FormattingEnabled = true;
+            ServidorIDAlta.Location = new Point(204, 113);
+            ServidorIDAlta.Name = "ServidorIDAlta";
+            ServidorIDAlta.Size = new Size(191, 28);
+            ServidorIDAlta.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(107, 113);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Servidor";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(123, 53);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Juego";
+            // 
+            // cbJuegoIDAlta
+            // 
+            this.cbJuegoIDAlta.FormattingEnabled = true;
+            this.cbJuegoIDAlta.Location = new Point(204, 50);
+            this.cbJuegoIDAlta.Name = "cbJuegoIDAlta";
+            this.cbJuegoIDAlta.Size = new Size(191, 28);
+            this.cbJuegoIDAlta.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(917, 647);
+            ClientSize = new Size(1325, 647);
+            Controls.Add(groupBox3);
+            Controls.Add(txtCargarSaldo);
             Controls.Add(btnCambiarCuenta);
             Controls.Add(lblUsuario);
             Controls.Add(groupBox2);
@@ -114,6 +252,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvServidores).EndInit();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvJuegos).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,5 +266,18 @@
         private DataGridView dgvJuegos;
         private Label lblUsuario;
         private Button btnCambiarCuenta;
+        private Button txtCargarSaldo;
+        private GroupBox groupBox3;
+        private Label label1;
+        private ComboBox cbJuegoIDAlta;
+        private ComboBox ServidorIDAlta;
+        private Label label2;
+        private Button btnAgregarSesion;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private TextBox txtMontoTotalAlta;
+        private TextBox txtHorasReservadasAlta;
+        private TextBox txtUsuarioAlta;
     }
 }
