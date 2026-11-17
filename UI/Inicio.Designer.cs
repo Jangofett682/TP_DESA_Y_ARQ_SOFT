@@ -36,8 +36,8 @@
             btnCambiarCuenta = new Button();
             txtCargarSaldo = new Button();
             groupBox3 = new GroupBox();
-            this.txtMontoTotalAlta = new TextBox();
-            this.txtHorasReservadasAlta = new TextBox();
+            txtMontoTotalAlta = new TextBox();
+            txtHorasReservadasAlta = new TextBox();
             txtUsuarioAlta = new TextBox();
             btnAgregarSesion = new Button();
             label5 = new Label();
@@ -46,7 +46,7 @@
             ServidorIDAlta = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            this.cbJuegoIDAlta = new ComboBox();
+            cbJuegoIDAlta = new ComboBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServidores).BeginInit();
             groupBox2.SuspendLayout();
@@ -123,8 +123,8 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(this.txtMontoTotalAlta);
-            groupBox3.Controls.Add(this.txtHorasReservadasAlta);
+            groupBox3.Controls.Add(txtMontoTotalAlta);
+            groupBox3.Controls.Add(txtHorasReservadasAlta);
             groupBox3.Controls.Add(txtUsuarioAlta);
             groupBox3.Controls.Add(btnAgregarSesion);
             groupBox3.Controls.Add(label5);
@@ -133,7 +133,7 @@
             groupBox3.Controls.Add(ServidorIDAlta);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(label1);
-            groupBox3.Controls.Add(this.cbJuegoIDAlta);
+            groupBox3.Controls.Add(cbJuegoIDAlta);
             groupBox3.Location = new Point(881, 84);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(432, 430);
@@ -143,17 +143,17 @@
             // 
             // txtMontoTotalAlta
             // 
-            this.txtMontoTotalAlta.Location = new Point(204, 295);
-            this.txtMontoTotalAlta.Name = "txtMontoTotalAlta";
-            this.txtMontoTotalAlta.Size = new Size(191, 27);
-            this.txtMontoTotalAlta.TabIndex = 10;
+            txtMontoTotalAlta.Location = new Point(204, 295);
+            txtMontoTotalAlta.Name = "txtMontoTotalAlta";
+            txtMontoTotalAlta.Size = new Size(191, 27);
+            txtMontoTotalAlta.TabIndex = 10;
             // 
             // txtHorasReservadasAlta
             // 
-            this.txtHorasReservadasAlta.Location = new Point(204, 235);
-            this.txtHorasReservadasAlta.Name = "txtHorasReservadasAlta";
-            this.txtHorasReservadasAlta.Size = new Size(191, 27);
-            this.txtHorasReservadasAlta.TabIndex = 9;
+            txtHorasReservadasAlta.Location = new Point(204, 235);
+            txtHorasReservadasAlta.Name = "txtHorasReservadasAlta";
+            txtHorasReservadasAlta.Size = new Size(191, 27);
+            txtHorasReservadasAlta.TabIndex = 9;
             // 
             // txtUsuarioAlta
             // 
@@ -227,11 +227,11 @@
             // 
             // cbJuegoIDAlta
             // 
-            this.cbJuegoIDAlta.FormattingEnabled = true;
-            this.cbJuegoIDAlta.Location = new Point(204, 50);
-            this.cbJuegoIDAlta.Name = "cbJuegoIDAlta";
-            this.cbJuegoIDAlta.Size = new Size(191, 28);
-            this.cbJuegoIDAlta.TabIndex = 0;
+            cbJuegoIDAlta.FormattingEnabled = true;
+            cbJuegoIDAlta.Location = new Point(204, 50);
+            cbJuegoIDAlta.Name = "cbJuegoIDAlta";
+            cbJuegoIDAlta.Size = new Size(191, 28);
+            cbJuegoIDAlta.TabIndex = 0;
             // 
             // Form1
             // 

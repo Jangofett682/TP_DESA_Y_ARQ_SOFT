@@ -13,6 +13,12 @@ namespace BLL
     {
         SesionDAO aplicacionDAO = new SesionDAO();
         ServidorDAO servidorDAO = new ServidorDAO();
+        JuegoDAO juegoDAO = new JuegoDAO();
+        JugadorDAO jugadorDAO = new JugadorDAO();
+
+        ServidorBusiness servidorBusiness = new ServidorBusiness();
+
+        SesionDAO sesionDAO = new SesionDAO();
         public List<SesionEntity> GetAll()
         {
             try
@@ -61,21 +67,51 @@ namespace BLL
             }
         }
 
-        public void GuardarSesion(SesionEntity sesion)
+
+   
+
+        public void GuardarSesion(SesionEntity nuevaSesion)
         {
             try
             {
-                if(sesion.HorasReservadas <= 0)
+                if(nuevaSesion.HorasReservadas <= 0)
                 {
                     throw new Exception("Debe reservar más de 0 hs");
                 }
                 //Obtenemos precio por hora
-                ServidorEntity servidor = servidorDAO.ObtenerPorID(sesion.IdSesion);
+                ServidorEntity servidor = servidorDAO.ObtenerPorID(nuevaSesion.IdSesion);
+                JuegoEntity juego = juegoDAO.BuscarPorID(nuevaSesion.JuegoId);
 
                 if(servidor == null)
                 {
                     throw new Exception("El servidor no existe");
                 }
+                if(juego == null)
+                {
+                    throw new Exception("El juego no existe");
+                }
+                //Valido estado
+                if(!servidor.Estado.Equals("Disponible", StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new Exception("El servidor seleccionado no está disponible");
+                }
+                //Valido compatibilidad juego
+                if (!servidorBusiness.EsCompatible(servidor, juego))
+                {
+                    throw new Exception($"El servidor no cumple con las especificaciones para la configuración requerida ({juego.Configuracion}) por el juego {juego.Titulo}");
+                }
+                double monto = nuevaSesion.HorasReservadas * servidor.PrecioHora;
+                nuevaSesion.MontoTotal = monto;
+
+                JugadorEntity jugador = jugadorDAO.Autenticar(nuevaSesion.NombreUsuario);
+                if (jugador.SaldoDisponible < monto)
+                {
+                    throw new Exception("Saldo insuficiente para alquilar servidor");
+                }
+                //Persistencia y actualización de singleton
+                double nuevoSaldo = jugador.SaldoDisponible - monto;
+                sesionDAO.RegistrarSesionSaldo(nuevaSesion, nuevoSaldo);
+                SesionJugador.GetInstance().ActualizarSaldoDisponible(nuevoSaldo);
             }
             catch(Exception ex)
             {
