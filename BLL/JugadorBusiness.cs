@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,18 @@ namespace BLL
 {
     public class JugadorBusiness
     {
+        JugadorDAO jugadorDAO = new JugadorDAO();
+        public List<JugadorEntity> GetAll()
+        {
+            try
+            {
+                List<JugadorEntity> listaJugadores = jugadorDAO.getAll();
+                return listaJugadores;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

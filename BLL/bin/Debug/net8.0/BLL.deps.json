@@ -494,6 +494,7 @@
       "DAL/1.0.0": {
         "dependencies": {
           "Entity": "1.0.0",
+          "Mapper": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.34",
           "System.Configuration.ConfigurationManager": "11.0.0"
         },
@@ -514,8 +515,8 @@
       },
       "Mapper/1.0.0": {
         "dependencies": {
-          "DAL": "1.0.0",
-          "Entity": "1.0.0"
+          "Entity": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.34"
         },
         "runtime": {
           "Mapper.dll": {

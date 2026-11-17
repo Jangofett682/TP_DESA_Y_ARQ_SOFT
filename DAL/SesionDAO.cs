@@ -34,26 +34,22 @@ namespace DAL
             }
         }
 
-        //Alta de varias sesiones con bloque transaccional
+        //Alta de varias sesiones
         public void AltaConjunta(List<SesionEntity> listaSesiones)
         {
             try
             {
                 using (var db = new CloudGamingContext())
                 {
-                    using(var trx = new TransactionScope())
+                    var listaDB = SesionMapper.MapBD(listaSesiones);
+
+                    foreach (var sesionBD in listaDB)
                     {
-                        //Entidades de negocio a las de BD
-                        var listaDB = SesionMapper.MapBD(listaSesiones);
-
-                        foreach (var sesionBD in listaDB)
-                        {
-                            db.Sesión.Add(sesionBD);
-                        }
-
-                        db.SaveChanges();
-                        trx.Complete();
+                        db.Sesión.Add(sesionBD);
                     }
+
+                    db.SaveChanges();
+
                 }
             }
             catch (Exception ex)

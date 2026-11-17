@@ -9,6 +9,7 @@
       "DAL/1.0.0": {
         "dependencies": {
           "Entity": "1.0.0",
+          "Mapper": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.34",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.34",
           "System.Configuration.ConfigurationManager": "11.0.0"
@@ -829,6 +830,18 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Mapper/1.0.0": {
+        "dependencies": {
+          "Entity": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.34"
+        },
+        "runtime": {
+          "Mapper.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1210,6 +1223,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Mapper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
