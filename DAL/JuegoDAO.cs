@@ -19,7 +19,6 @@ namespace DAL
                 using (var db = new CloudGamingContext())
                 {
                     var listaDB = db.Juego
-                    //Join
                         .ToList();
                     return JuegoMapper.Map(listaDB);
                 }

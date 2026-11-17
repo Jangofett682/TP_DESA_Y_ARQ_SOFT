@@ -3,6 +3,21 @@
   "WorkspaceRootPath": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\UI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\sesiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\servidordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\jugadordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\juegodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\dbconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A6220E46-3C68-4EFD-B44C-BCB87DCD5069}|..\\Mapper\\Mapper.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\mapper\\sesionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -28,12 +43,6 @@
       "RelativeMoniker": "D:0:0:{CF39B386-2D50-4A09-B495-8EFC1417DA3B}|UI.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\dbconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\juegodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{02CB55B3-4FF3-4805-A98E-8FED9CC6BCE6}|..\\BLL\\BLL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\bll\\servidorbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -55,15 +64,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{02CB55B3-4FF3-4805-A98E-8FED9CC6BCE6}|..\\BLL\\BLL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\bll\\sesionusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\jugadordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\servidordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65BDABC8-3948-4F32-B8C6-26BBE46691C3}|..\\DAL\\DAL.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\dal\\sesiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EEEFADDA-57A0-49FF-911B-C2302FA72CC1}|..\\Entity\\Entity.csproj|c:\\users\\ragoj\\onedrive\\documentos\\uai\\2026 2-2\\das\\cloudgaming\\repositorio colaborativo\\tp_desa_y_arq_soft\\entity\\servidorentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -116,11 +116,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Sesi\u00F3n.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\EFModel\\Sesi\u00F3n.cs",
               "RelativeDocumentMoniker": "..\\Entity\\EFModel\\Sesi\u00F3n.cs",
@@ -128,12 +128,11 @@
               "RelativeToolTip": "..\\Entity\\EFModel\\Sesi\u00F3n.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T13:54:27.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-17T13:54:27.2Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Juego.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Entity\\EFModel\\Juego.cs",
               "RelativeDocumentMoniker": "..\\Entity\\EFModel\\Juego.cs",
@@ -141,12 +140,11 @@
               "RelativeToolTip": "..\\Entity\\EFModel\\Juego.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T13:39:51.133Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-17T13:39:51.133Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "CloudGamingContext.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\Models\\CloudGamingContext.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\CloudGamingContext.cs",
@@ -154,12 +152,11 @@
               "RelativeToolTip": "..\\DAL\\Models\\CloudGamingContext.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAkwBsAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T13:36:53.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-17T13:36:53.971Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\UI\\App.config",
               "RelativeDocumentMoniker": "App.config",
@@ -171,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Settings.settings",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\UI\\Properties\\Settings.settings",
               "RelativeDocumentMoniker": "Properties\\Settings.settings",
@@ -182,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "UI",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\UI\\UI.csproj",
               "RelativeDocumentMoniker": "UI.csproj",
@@ -193,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ServidorBusiness.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\ServidorBusiness.cs",
               "RelativeDocumentMoniker": "..\\BLL\\ServidorBusiness.cs",
@@ -205,19 +202,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "JuegoDAO.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\JuegoDAO.cs",
               "RelativeDocumentMoniker": "..\\DAL\\JuegoDAO.cs",
               "ToolTip": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\JuegoDAO.cs",
               "RelativeToolTip": "..\\DAL\\JuegoDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:21:25.396Z"
+              "WhenOpened": "2026-11-06T13:21:25.396Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "DBConfigurations.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\DBConfigurations.cs",
               "RelativeDocumentMoniker": "..\\DAL\\DBConfigurations.cs",
@@ -229,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "SesionUsuario.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\SesionUsuario.cs",
               "RelativeDocumentMoniker": "..\\BLL\\SesionUsuario.cs",
@@ -241,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "JugadorBusiness.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\JugadorBusiness.cs",
               "RelativeDocumentMoniker": "..\\BLL\\JugadorBusiness.cs",
@@ -253,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "JuegoBusiness.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\JuegoBusiness.cs",
               "RelativeDocumentMoniker": "..\\BLL\\JuegoBusiness.cs",
@@ -265,31 +263,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "JugadorDAO.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\JugadorDAO.cs",
               "RelativeDocumentMoniker": "..\\DAL\\JugadorDAO.cs",
               "ToolTip": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\JugadorDAO.cs",
               "RelativeToolTip": "..\\DAL\\JugadorDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswBUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:20:34.821Z"
+              "WhenOpened": "2026-11-06T13:20:34.821Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 1,
               "Title": "ServidorDAO.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\ServidorDAO.cs",
               "RelativeDocumentMoniker": "..\\DAL\\ServidorDAO.cs",
               "ToolTip": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\ServidorDAO.cs",
               "RelativeToolTip": "..\\DAL\\ServidorDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:20:01.489Z"
+              "WhenOpened": "2026-11-06T13:20:01.489Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "SesionBusiness.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\BLL\\SesionBusiness.cs",
               "RelativeDocumentMoniker": "..\\BLL\\SesionBusiness.cs",
@@ -301,32 +301,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 0,
               "Title": "SesionDAO.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\SesionDAO.cs",
               "RelativeDocumentMoniker": "..\\DAL\\SesionDAO.cs",
               "ToolTip": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\DAL\\SesionDAO.cs",
               "RelativeToolTip": "..\\DAL\\SesionDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwDAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:20:20.491Z"
+              "WhenOpened": "2026-11-06T13:20:20.491Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "SesionMapper.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\SesionMapper.cs",
               "RelativeDocumentMoniker": "..\\Mapper\\SesionMapper.cs",
               "ToolTip": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\SesionMapper.cs",
               "RelativeToolTip": "..\\Mapper\\SesionMapper.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAA1wEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:19:10.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-06T13:19:10.219Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ServidorMapper.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\ServidorMapper.cs",
               "RelativeDocumentMoniker": "..\\Mapper\\ServidorMapper.cs",
@@ -334,8 +334,7 @@
               "RelativeToolTip": "..\\Mapper\\ServidorMapper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:18:46.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-06T13:18:46.479Z"
             },
             {
               "$type": "Document",
@@ -363,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "JuegoMapper.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\JuegoMapper.cs",
               "RelativeDocumentMoniker": "..\\Mapper\\JuegoMapper.cs",
@@ -371,12 +370,11 @@
               "RelativeToolTip": "..\\Mapper\\JuegoMapper.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAqwEIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:19:43.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-06T13:19:43.723Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "JugadorMapper.cs",
               "DocumentMoniker": "C:\\Users\\ragoj\\OneDrive\\Documentos\\UAI\\2026 2-2\\DAS\\CloudGaming\\Repositorio colaborativo\\TP_DESA_Y_ARQ_SOFT\\Mapper\\JugadorMapper.cs",
               "RelativeDocumentMoniker": "..\\Mapper\\JugadorMapper.cs",
@@ -384,8 +382,7 @@
               "RelativeToolTip": "..\\Mapper\\JugadorMapper.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAYwAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-06T13:19:26.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-06T13:19:26.311Z"
             },
             {
               "$type": "Document",
