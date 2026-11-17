@@ -23,6 +23,10 @@ namespace Mapper
                     NombreUsuario = sesion.NombreUsuario,
                     HorasReservadas = Convert.ToDouble(sesion.HorasReservadas),
                     MontoTotal = Convert.ToDouble(sesion.MontoTotal),
+
+                    PrecioHoraServidor = sesion.ServidorId != null
+                    ? Convert.ToDouble(sesion.Servidor.PrecioHora)
+                    : 0.0,
                 };
             }
             catch (Exception ex)

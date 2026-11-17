@@ -2,6 +2,7 @@
 using DAL.Models;
 using Entity;
 using Mapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace DAL
                 using (var db = new CloudGamingContext())
                 {
                     var listaDB = db.Sesión
+                        .Include(s=>s.NombreUsuarioNavigation)
+                        .Include(s=>s.Servidor)
                         .ToList();
                     return SesionMapper.Map(listaDB);
                 }
