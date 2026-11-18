@@ -47,6 +47,7 @@
             label2 = new Label();
             label1 = new Label();
             cbJuegoIDAlta = new ComboBox();
+            txtVerSesionesUsuario = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServidores).BeginInit();
             groupBox2.SuspendLayout();
@@ -103,7 +104,7 @@
             // 
             // btnCambiarCuenta
             // 
-            btnCambiarCuenta.Location = new Point(1004, 4);
+            btnCambiarCuenta.Location = new Point(817, 4);
             btnCambiarCuenta.Name = "btnCambiarCuenta";
             btnCambiarCuenta.Size = new Size(149, 31);
             btnCambiarCuenta.TabIndex = 3;
@@ -140,6 +141,7 @@
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = "Nueva sesión";
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // txtMontoTotalAlta
             // 
@@ -154,6 +156,7 @@
             txtHorasReservadasAlta.Name = "txtHorasReservadasAlta";
             txtHorasReservadasAlta.Size = new Size(191, 27);
             txtHorasReservadasAlta.TabIndex = 9;
+            txtHorasReservadasAlta.TextChanged += txtHorasReservadasAlta_TextChanged;
             // 
             // txtUsuarioAlta
             // 
@@ -206,6 +209,7 @@
             ServidorIDAlta.Name = "ServidorIDAlta";
             ServidorIDAlta.Size = new Size(191, 28);
             ServidorIDAlta.TabIndex = 3;
+            ServidorIDAlta.SelectedIndexChanged += ServidorIDAlta_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -232,12 +236,24 @@
             cbJuegoIDAlta.Name = "cbJuegoIDAlta";
             cbJuegoIDAlta.Size = new Size(191, 28);
             cbJuegoIDAlta.TabIndex = 0;
+            cbJuegoIDAlta.SelectedIndexChanged += cbJuegoIDAlta_SelectedIndexChanged;
+            // 
+            // txtVerSesionesUsuario
+            // 
+            txtVerSesionesUsuario.Location = new Point(1015, 5);
+            txtVerSesionesUsuario.Name = "txtVerSesionesUsuario";
+            txtVerSesionesUsuario.Size = new Size(143, 29);
+            txtVerSesionesUsuario.TabIndex = 11;
+            txtVerSesionesUsuario.Text = "Vea sus sesiones";
+            txtVerSesionesUsuario.UseVisualStyleBackColor = true;
+            txtVerSesionesUsuario.Click += txtVerSesionesUsuario_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1325, 647);
+            Controls.Add(txtVerSesionesUsuario);
             Controls.Add(groupBox3);
             Controls.Add(txtCargarSaldo);
             Controls.Add(btnCambiarCuenta);
@@ -279,5 +295,6 @@
         private TextBox txtMontoTotalAlta;
         private TextBox txtHorasReservadasAlta;
         private TextBox txtUsuarioAlta;
+        private Button txtVerSesionesUsuario;
     }
 }

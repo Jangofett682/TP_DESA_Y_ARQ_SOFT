@@ -7,7 +7,6 @@ namespace BLL
     public class ServidorBusiness
     {
         ServidorDAO servidorDAO = new ServidorDAO();
-        SesionBusiness sesionBusiness = new SesionBusiness();
         JuegoDAO juegoDAO = new JuegoDAO();
 
         private int ObtenerGamaGPU(string gpu)
@@ -112,7 +111,7 @@ namespace BLL
                     case "ULTRA":
                         return gamaGPUServidor >= 4 && gamaCPUServidor >= 4 && ramServidor >= 16;
                     case "ALTA":
-                        return gamaGPUServidor >= 3 && gamaCPUServidor >= 3 && ramServidor >= 16;
+                        return gamaGPUServidor >= 3 && gamaCPUServidor >= 2 && ramServidor >= 16;
                     case "MEDIA":
                         return gamaGPUServidor >= 2 && gamaCPUServidor >= 2 && ramServidor >= 8;
                     default:

@@ -68,8 +68,6 @@ namespace BLL
         }
 
 
-   
-
         public void GuardarSesion(SesionEntity nuevaSesion)
         {
             try
@@ -79,7 +77,7 @@ namespace BLL
                     throw new Exception("Debe reservar más de 0 hs");
                 }
                 //Obtenemos precio por hora
-                ServidorEntity servidor = servidorDAO.ObtenerPorID(nuevaSesion.IdSesion);
+                ServidorEntity servidor = servidorDAO.ObtenerPorID(nuevaSesion.ServidorId);
                 JuegoEntity juego = juegoDAO.BuscarPorID(nuevaSesion.JuegoId);
 
                 if(servidor == null)
@@ -95,7 +93,7 @@ namespace BLL
                 {
                     throw new Exception("El servidor seleccionado no está disponible");
                 }
-                //Valido compatibilidad juego
+                //Valido compatibilidad de hardware
                 if (!servidorBusiness.EsCompatible(servidor, juego))
                 {
                     throw new Exception($"El servidor no cumple con las especificaciones para la configuración requerida ({juego.Configuracion}) por el juego {juego.Titulo}");
@@ -175,6 +173,23 @@ namespace BLL
                 aplicacionDAO.Modificar(sesionModificada);
             }
             catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public List<SesionEntity> ObtenerSesionesUsuarioActivo()
+        {
+            try
+            {
+                string usuarioActivo = SesionJugador.GetInstance().NombreUsuario;
+                if (string.IsNullOrEmpty(usuarioActivo))
+                {
+                    throw new Exception("No hay ninguna sesión activa");
+                }
+                return sesionDAO.ObtenerPorUsuario(usuarioActivo);
+            }
+            catch(Exception ex)
             {
                 throw;
             }

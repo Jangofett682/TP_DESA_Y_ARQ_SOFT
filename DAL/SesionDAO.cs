@@ -62,19 +62,23 @@ namespace DAL
         {
             try
             {
-                using(var db = new CloudGamingContext())
+                using(var trx = new TransactionScope())
                 {
-                    var nuevaSesionBD = SesionMapper.Map(sesion);
-                    db.Sesión.Add(nuevaSesionBD);
-
-                    //Actualización saldo
-                    var jugadorBD = db.Jugador
-                        .FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
-                    if (jugadorBD != null)
+                    using (var db = new CloudGamingContext())
                     {
-                        jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
+                        var nuevaSesionBD = SesionMapper.Map(sesion);
+                        db.Sesión.Add(nuevaSesionBD);
+
+                        //Actualización saldo
+                        var jugadorBD = db.Jugador
+                            .FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
+                        if (jugadorBD != null)
+                        {
+                            jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
+                        }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
+                    trx.Complete();
                 }
             }
             catch(Exception ex)
@@ -153,6 +157,22 @@ namespace DAL
             }
         }
 
-
+        public List<SesionEntity>ObtenerPorUsuario(string nombreUsuario)
+        {
+            try
+            {
+                using(var db = new CloudGamingContext())
+                {
+                    var sesionesBD = db.Sesión
+                        .Where(s => s.NombreUsuario == nombreUsuario)
+                        .ToList();
+                    return sesionesBD.Select(s => SesionMapper.Map(s)).ToList();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
