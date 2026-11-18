@@ -21,12 +21,10 @@ namespace Entity
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public double HorasReservadas { get => horasReservadas; set => horasReservadas = value; }
         public double MontoTotal { get => montoTotal; set => montoTotal = value; }
-        public double PrecioHoraServidor { get => precioHoraServidor; set => precioHoraServidor = value; }
-        public double PorcentajeDescuento { get => porcentajeDescuento; set => porcentajeDescuento = value; }
 
         //Propiedades auxiliares
-        private double precioHoraServidor;
-        private double porcentajeDescuento = 0;
+        public double PrecioHoraServidor { get; set; }
+        public double PorcentajeDescuento { get; set; }
 
     }
 }

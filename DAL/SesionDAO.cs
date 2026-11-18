@@ -15,6 +15,7 @@ namespace DAL
 {
     public class SesionDAO
     {
+        public ServidorDAO servidorDAO = new ServidorDAO();
         public List<SesionEntity> getAll()
         {
             try
@@ -24,6 +25,7 @@ namespace DAL
                     var listaDB = db.Sesión
                         .Include(s=>s.NombreUsuarioNavigation)
                         .Include(s=>s.Servidor)
+                        .Include(s=>s.Juego)
                         .ToList();
                     return SesionMapper.Map(listaDB);
                 }
@@ -94,13 +96,10 @@ namespace DAL
             {
                 using (var db = new CloudGamingContext())
                 {
-                    Sesión sesion = db.Sesión
+                    Sesión sesionBD = db.Sesión
+                        .Include(s => s.Servidor)
                         .FirstOrDefault(s => s.IdSesion == id);
-                    if (sesion != null)
-                    {
-                        return SesionMapper.Map(sesion);
-                    }
-                    return null;
+                    return sesionBD != null ? SesionMapper.Map(sesionBD) : null;
                 }
             }
             catch (Exception ex)
@@ -132,24 +131,30 @@ namespace DAL
         }
 
         //Método Modificar, SesionEntity como parámetro
-        public void Modificar(SesionEntity sesionModificada)
+        public void Modificar(SesionEntity sesionModificada, double nuevoSaldo)
         {
             try
             {
-                using (var db = new CloudGamingContext())
+                using(var trx = new TransactionScope())
                 {
-                    //Compruebo si ya existe o no
-                    Sesión sesion = db.Sesión.FirstOrDefault(s => s.IdSesion == sesionModificada.IdSesion);
-                    if (sesion != null)
+                    using (var db = new CloudGamingContext())
                     {
-                        //Asigno nuevos valores y persisto						                    
-                        sesion.JuegoId = sesionModificada.JuegoId;
-                        sesion.ServidorId = sesionModificada.ServidorId;
-                        sesion.HorasReservadas = Convert.ToDecimal(sesionModificada.HorasReservadas);
-                        sesion.MontoTotal = Convert.ToDecimal(sesionModificada.MontoTotal);
+                        var sesionBD = db.Sesión.FirstOrDefault(s => s.IdSesion == sesionModificada.IdSesion);
+                        if(sesionBD != null)
+                        {
+                            sesionBD.HorasReservadas = Convert.ToDecimal(sesionModificada.HorasReservadas);
+                            sesionBD.MontoTotal = Convert.ToDecimal(sesionModificada.MontoTotal);
+                        }
+                        var jugadorBD = db.Jugador.FirstOrDefault(j => j.NombreUsuario == sesionModificada.NombreUsuario);
+                        if (jugadorBD != null)
+                        {
+                            jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
+                        }
                         db.SaveChanges();
                     }
+                    trx.Complete();
                 }
+                
             }
             catch (Exception ex)
             {
@@ -164,6 +169,7 @@ namespace DAL
                 using(var db = new CloudGamingContext())
                 {
                     var sesionesBD = db.Sesión
+                        .Include(s => s.Servidor)
                         .Where(s => s.NombreUsuario == nombreUsuario)
                         .ToList();
                     return sesionesBD.Select(s => SesionMapper.Map(s)).ToList();

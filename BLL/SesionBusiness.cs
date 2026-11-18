@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entity;
+using Mapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,18 +53,18 @@ namespace BLL
 
         public void ValidarReglasNegocio(SesionEntity sesion)
         {
-            if (string.IsNullOrEmpty(sesion.NombreUsuario) || sesion.NombreUsuario.Length < 5)
-            {
-                throw new Exception("Debe contener un usuario con al menos 5 caracteres");
-            }
             if (sesion.HorasReservadas <= 0)
             {
                 throw new Exception("Las horas reservadas deben ser más de 0");
             }
 
-            if (sesion.IdSesion <= 0)
+            if (sesion.ServidorId <= 0)
             {
-                throw new Exception("Debe seleccionar una categoría con id válido");
+                throw new Exception("Debe seleccionar un servidor con id válido");
+            }
+            if (sesion.JuegoId <= 0)
+            {
+                throw new Exception("Debe seleccionar un juego con id válido");
             }
         }
 
@@ -72,10 +73,7 @@ namespace BLL
         {
             try
             {
-                if(nuevaSesion.HorasReservadas <= 0)
-                {
-                    throw new Exception("Debe reservar más de 0 hs");
-                }
+                ValidarReglasNegocio(nuevaSesion);
                 //Obtenemos precio por hora
                 ServidorEntity servidor = servidorDAO.ObtenerPorID(nuevaSesion.ServidorId);
                 JuegoEntity juego = juegoDAO.BuscarPorID(nuevaSesion.JuegoId);
@@ -169,8 +167,52 @@ namespace BLL
                 {
                     throw new Exception("ID no válido");
                 }
-                ValidarReglasNegocio(sesionModificada);
-                aplicacionDAO.Modificar(sesionModificada);
+                ServidorEntity servidor = servidorDAO.ObtenerPorID(sesionExistente.ServidorId);
+                if(servidor == null)
+                {
+                    throw new Exception("El servidor no existe");
+                }
+                //Mantengo valores ID originales sin pisarlos
+                if (sesionModificada.ServidorId <= 0)
+                {
+                    sesionModificada.ServidorId = sesionExistente.ServidorId;
+                }
+                if(sesionModificada.JuegoId <= 0)
+                {
+                    sesionModificada.JuegoId = sesionExistente.JuegoId;
+                }
+                double nuevoTotal = sesionModificada.HorasReservadas * servidor.PrecioHora;
+                double porcentajeDescuento = SesionMapper.CalcularPorcentajeHoras(sesionModificada.HorasReservadas);
+                double diferenciaMonto = nuevoTotal - sesionExistente.MontoTotal;
+                //Reasigno montos
+                sesionModificada.MontoTotal = nuevoTotal;
+                sesionModificada.PorcentajeDescuento = porcentajeDescuento;
+
+                JugadorEntity jugadorExistente = jugadorDAO.Autenticar(sesionExistente.NombreUsuario);
+                if(jugadorExistente== null)
+                {
+                    throw new Exception("El jugador no existe");
+                }
+
+                //Valido si el saldo es suficiente
+                if(diferenciaMonto > 0 && jugadorExistente.SaldoDisponible < diferenciaMonto)
+                {
+                    throw new Exception($"Saldo insuficiente. Cargue más o reajuste según sea necesario. Costo extra: {diferenciaMonto:N2}");
+                }
+                //Calculo de nuevo saldo para el jugador
+                double nuevoSaldoJugador = jugadorExistente.SaldoDisponible - diferenciaMonto;
+
+                using (var trx = new TransactionScope())
+                {
+                    ValidarReglasNegocio(sesionModificada);
+                    aplicacionDAO.Modificar(sesionModificada, nuevoSaldoJugador);
+                    trx.Complete();
+                }
+
+                if (SesionJugador.GetInstance().NombreUsuario == sesionExistente.NombreUsuario)
+                {
+                    SesionJugador.GetInstance().ActualizarSaldoDisponible(nuevoSaldoJugador);
+                }
             }
             catch (Exception ex)
             {

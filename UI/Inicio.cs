@@ -1,5 +1,6 @@
 using BLL;
 using Entity;
+using Mapper;
 using UI;
 
 namespace PlantillaCapas
@@ -187,14 +188,20 @@ namespace PlantillaCapas
                     MessageBox.Show("Por favor ingrese horas en formato numérico");
                     return;
                 }
+
+
                 SesionEntity nuevaSesion = new SesionEntity
                 {
                     NombreUsuario = txtUsuarioAlta.Text,
                     JuegoId = Convert.ToInt32(cbJuegoIDAlta.SelectedValue),
                     ServidorId = Convert.ToInt32(ServidorIDAlta.SelectedValue),
                     HorasReservadas = horas,
+                    PorcentajeDescuento = Convert.ToDouble(SesionMapper.CalcularPorcentajeHoras(horas)),
                 };
+
                 sesionBusiness.GuardarSesion(nuevaSesion);
+                CargarComboServidores();
+                CargarMensajeBienvenida();
                 MessageBox.Show("Sesión guardada exitosamente");
             }
             catch (Exception ex)

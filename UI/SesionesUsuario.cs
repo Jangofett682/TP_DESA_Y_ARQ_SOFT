@@ -1,4 +1,6 @@
 ﻿using BLL;
+using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +23,56 @@ namespace UI
 
         private void SesionesUsuario_Load(object sender, EventArgs e)
         {
+            CargarSesionesUsuario();
+            CargarComboEliminar();
+            CargarComboModificar();
+            CargarMensajeBienvenida();
+        }
 
+        private void CargarMensajeBienvenida()
+        {
+            try
+            {
+                string usuarioActivo = SesionJugador.GetInstance().NombreUsuario;
+                double saldoActivo = SesionJugador.GetInstance().SaldoDisponible;
+
+                lblUsuario.Text = string.Empty;
+                lblUsuario.Text = $"Bienvenido, {usuarioActivo};\nSaldo actual ${saldoActivo:N2}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CargarComboModificar()
+        {
+            try
+            {
+                cbIDModificar.DataSource = null;
+                cbIDModificar.DataSource = sesionBusiness.ObtenerSesionesUsuarioActivo();
+                cbIDModificar.ValueMember = "idSesion";
+                cbIDModificar.DisplayMember = "idSesion";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al cargar lista de ID para modificar");
+            }
+        }
+
+        private void CargarComboEliminar()
+        {
+            try
+            {
+                cbIDEliminar.DataSource = null;
+                cbIDEliminar.DataSource = sesionBusiness.ObtenerSesionesUsuarioActivo();
+                cbIDEliminar.ValueMember = "idSesion";
+                cbIDEliminar.DisplayMember = "idSesion";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al cargar lista de ID para eliminar");
+            }
         }
 
         private void CargarSesionesUsuario()
@@ -32,10 +83,50 @@ namespace UI
                 dgvSesionesUsuario.DataSource = null;
                 dgvSesionesUsuario.DataSource = listaSesiones;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sesionBusiness.Eliminar(Convert.ToInt32(cbIDEliminar.SelectedValue));
+                MessageBox.Show($"Sesión eliminada exitosamente");
+                CargarSesionesUsuario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al eliminar sesión");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SesionEntity sesionModificada = new SesionEntity
+                {
+                    IdSesion = Convert.ToInt32(cbIDModificar.SelectedValue),
+                    HorasReservadas = Convert.ToDouble(numHorasModificacion.Value),
+                    NombreUsuario = SesionJugador.GetInstance().NombreUsuario,
+                };
+                sesionBusiness.Modificar(sesionModificada);
+                MessageBox.Show("Sesion modificada exitosamente");
+                CargarSesionesUsuario();
+                CargarMensajeBienvenida();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al modificar sesión");
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

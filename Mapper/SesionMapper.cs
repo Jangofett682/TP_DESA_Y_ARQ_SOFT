@@ -15,6 +15,25 @@ namespace Mapper
         {
             try
             {
+                if(sesion == null)
+                {
+                    return null;
+                }
+                double horas = Convert.ToDouble(sesion.HorasReservadas);
+                double montoTotal = Convert.ToDouble(sesion.MontoTotal);
+                double precioHora = sesion.Servidor != null ? Convert.ToDouble(sesion.Servidor.PrecioHora) : 0.0;
+
+                double total = horas * precioHora;
+                double descuento = 0.0;
+                if(total > 0 && montoTotal < total)
+                {
+                    descuento = Math.Round(((total-montoTotal)/total)*100,2);
+                }
+                else
+                {
+                    descuento = CalcularPorcentajeHoras(horas);
+                }
+
                 return new SesionEntity
                 {
                     IdSesion = sesion.IdSesion,
@@ -24,12 +43,34 @@ namespace Mapper
                     HorasReservadas = Convert.ToDouble(sesion.HorasReservadas),
                     MontoTotal = Convert.ToDouble(sesion.MontoTotal),
 
-                    PrecioHoraServidor = sesion.ServidorId != null
+                    PrecioHoraServidor = sesion.Servidor != null
                     ? Convert.ToDouble(sesion.Servidor.PrecioHora)
                     : 0.0,
+
+                    PorcentajeDescuento = descuento,
                 };
             }
             catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public static double CalcularPorcentajeHoras(double horas)
+        {
+            try
+            {
+                if (horas >= 10)
+                {
+                    return 20.0;
+                }
+                if(horas >= 5)
+                {
+                    return 10.0;
+                }
+                return 0.0;
+            }
+            catch(Exception ex)
             {
                 throw;
             }

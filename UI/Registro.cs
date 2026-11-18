@@ -30,7 +30,7 @@ namespace UI
         {
             try
             {
-                if(string.IsNullOrEmpty(txtContraseña.Text)|| string.IsNullOrEmpty(txtMail.Text)|| string.IsNullOrEmpty(txtNombreApellido.Text) || string.IsNullOrEmpty(txtUsuario.Text))
+                if(string.IsNullOrEmpty(txtMail.Text)|| string.IsNullOrEmpty(txtNombreApellido.Text) || string.IsNullOrEmpty(txtUsuario.Text))
                 {
                     MessageBox.Show("Por favor complete todos los campos");
                     return;

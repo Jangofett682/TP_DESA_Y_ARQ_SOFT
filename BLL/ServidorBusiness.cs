@@ -20,12 +20,12 @@ namespace BLL
                 string g = gpu.ToUpper();
 
                 //Nivel 4 - Ultra
-                if (g.Contains("4090") || g.Contains("4080") || g.Contains("3080"))
+                if (g.Contains("4090") || g.Contains("4080") || g.Contains("3080")||g.Contains("5090"))
                 {
                     return 4;
                 }
                 //Nivel 3 - Alta
-                if (g.Contains("3070") || g.Contains("3060") || g.Contains("2080"))
+                if (g.Contains("3070") || g.Contains("3060") || g.Contains("2080")||g.Contains("3050"))
                 {
                     return 3;
                 }
@@ -71,17 +71,17 @@ namespace BLL
                 }
                 string c = gpu.ToUpper();
                 //Nivel 4 - ultra
-                if (c.Contains("Ryzen 9") || c.Contains("Ryzen 7"))
+                if (c.Contains("RYZEN 9"))
                 {
                     return 4;
                 }
                 //Nivel 3 - alta
-                if (c.Contains("Ryzen 7") || c.Contains("Ryzen 5"))
+                if (c.Contains("RYZEN 7"))
                 {
                     return 3;
                 }
                 //Nivel 2 - media
-                if (c.Contains("Ryzen 5"))
+                if (c.Contains("RYZEN 5"))
                 {
                     return 2;
                 }
@@ -106,7 +106,7 @@ namespace BLL
                 int ramServidor = ExtraerGB(servidor.Ram);
 
 
-                switch (configuracionRequerida)
+                switch (configuracionRequerida.ToUpper())
                 {
                     case "ULTRA":
                         return gamaGPUServidor >= 4 && gamaCPUServidor >= 4 && ramServidor >= 16;
@@ -115,7 +115,7 @@ namespace BLL
                     case "MEDIA":
                         return gamaGPUServidor >= 2 && gamaCPUServidor >= 2 && ramServidor >= 8;
                     default:
-                        return gamaCPUServidor >= 3 && gamaCPUServidor >= 3;
+                        return false;
                 }
 
             }

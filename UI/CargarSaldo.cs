@@ -21,7 +21,20 @@ namespace UI
 
         private void CargarSaldo_Load(object sender, EventArgs e)
         {
-
+            CargarUsuarioActivo();
+        }
+        
+        private void CargarUsuarioActivo()
+        {
+            try
+            {
+                string usuarioActivo = SesionJugador.GetInstance().NombreUsuario;
+                lblUsuarioActivo.Text = $"Usuario activo: {usuarioActivo}";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al cargar usuario activo");
+            }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)

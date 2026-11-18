@@ -58,9 +58,9 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvServidores);
-            groupBox1.Location = new Point(39, 69);
+            groupBox1.Location = new Point(17, 69);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(373, 552);
+            groupBox1.Size = new Size(571, 552);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Servidores";
@@ -68,18 +68,18 @@
             // dgvServidores
             // 
             dgvServidores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvServidores.Location = new Point(6, 27);
+            dgvServidores.Location = new Point(6, 33);
             dgvServidores.Name = "dgvServidores";
             dgvServidores.RowHeadersWidth = 51;
-            dgvServidores.Size = new Size(361, 519);
+            dgvServidores.Size = new Size(559, 513);
             dgvServidores.TabIndex = 0;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(dgvJuegos);
-            groupBox2.Location = new Point(458, 69);
+            groupBox2.Location = new Point(608, 69);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(376, 546);
+            groupBox2.Size = new Size(497, 552);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Juegos";
@@ -90,7 +90,7 @@
             dgvJuegos.Location = new Point(9, 27);
             dgvJuegos.Name = "dgvJuegos";
             dgvJuegos.RowHeadersWidth = 51;
-            dgvJuegos.Size = new Size(361, 519);
+            dgvJuegos.Size = new Size(482, 519);
             dgvJuegos.TabIndex = 1;
             // 
             // lblUsuario
@@ -135,9 +135,9 @@
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(label1);
             groupBox3.Controls.Add(cbJuegoIDAlta);
-            groupBox3.Location = new Point(881, 84);
+            groupBox3.Location = new Point(1133, 83);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(432, 430);
+            groupBox3.Size = new Size(335, 430);
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = "Nueva sesión";
@@ -145,29 +145,29 @@
             // 
             // txtMontoTotalAlta
             // 
-            txtMontoTotalAlta.Location = new Point(204, 295);
+            txtMontoTotalAlta.Location = new Point(156, 298);
             txtMontoTotalAlta.Name = "txtMontoTotalAlta";
-            txtMontoTotalAlta.Size = new Size(191, 27);
+            txtMontoTotalAlta.Size = new Size(154, 27);
             txtMontoTotalAlta.TabIndex = 10;
             // 
             // txtHorasReservadasAlta
             // 
-            txtHorasReservadasAlta.Location = new Point(204, 235);
+            txtHorasReservadasAlta.Location = new Point(156, 238);
             txtHorasReservadasAlta.Name = "txtHorasReservadasAlta";
-            txtHorasReservadasAlta.Size = new Size(191, 27);
+            txtHorasReservadasAlta.Size = new Size(154, 27);
             txtHorasReservadasAlta.TabIndex = 9;
             txtHorasReservadasAlta.TextChanged += txtHorasReservadasAlta_TextChanged;
             // 
             // txtUsuarioAlta
             // 
-            txtUsuarioAlta.Location = new Point(204, 181);
+            txtUsuarioAlta.Location = new Point(156, 184);
             txtUsuarioAlta.Name = "txtUsuarioAlta";
-            txtUsuarioAlta.Size = new Size(191, 27);
+            txtUsuarioAlta.Size = new Size(154, 27);
             txtUsuarioAlta.TabIndex = 8;
             // 
             // btnAgregarSesion
             // 
-            btnAgregarSesion.Location = new Point(192, 373);
+            btnAgregarSesion.Location = new Point(107, 376);
             btnAgregarSesion.Name = "btnAgregarSesion";
             btnAgregarSesion.Size = new Size(143, 29);
             btnAgregarSesion.TabIndex = 7;
@@ -178,7 +178,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(83, 295);
+            label5.Location = new Point(58, 302);
             label5.Name = "label5";
             label5.Size = new Size(88, 20);
             label5.TabIndex = 6;
@@ -187,7 +187,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 235);
+            label4.Location = new Point(28, 242);
             label4.Name = "label4";
             label4.Size = new Size(122, 20);
             label4.TabIndex = 5;
@@ -196,7 +196,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(53, 181);
+            label3.Location = new Point(28, 188);
             label3.Name = "label3";
             label3.Size = new Size(118, 20);
             label3.TabIndex = 4;
@@ -205,16 +205,16 @@
             // ServidorIDAlta
             // 
             ServidorIDAlta.FormattingEnabled = true;
-            ServidorIDAlta.Location = new Point(204, 113);
+            ServidorIDAlta.Location = new Point(156, 116);
             ServidorIDAlta.Name = "ServidorIDAlta";
-            ServidorIDAlta.Size = new Size(191, 28);
+            ServidorIDAlta.Size = new Size(154, 28);
             ServidorIDAlta.TabIndex = 3;
             ServidorIDAlta.SelectedIndexChanged += ServidorIDAlta_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(107, 113);
+            label2.Location = new Point(82, 120);
             label2.Name = "label2";
             label2.Size = new Size(64, 20);
             label2.TabIndex = 2;
@@ -223,7 +223,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(123, 53);
+            label1.Location = new Point(98, 60);
             label1.Name = "label1";
             label1.Size = new Size(48, 20);
             label1.TabIndex = 1;
@@ -232,9 +232,9 @@
             // cbJuegoIDAlta
             // 
             cbJuegoIDAlta.FormattingEnabled = true;
-            cbJuegoIDAlta.Location = new Point(204, 50);
+            cbJuegoIDAlta.Location = new Point(156, 53);
             cbJuegoIDAlta.Name = "cbJuegoIDAlta";
-            cbJuegoIDAlta.Size = new Size(191, 28);
+            cbJuegoIDAlta.Size = new Size(154, 28);
             cbJuegoIDAlta.TabIndex = 0;
             cbJuegoIDAlta.SelectedIndexChanged += cbJuegoIDAlta_SelectedIndexChanged;
             // 
@@ -252,7 +252,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1325, 647);
+            ClientSize = new Size(1480, 663);
             Controls.Add(txtVerSesionesUsuario);
             Controls.Add(groupBox3);
             Controls.Add(txtCargarSaldo);

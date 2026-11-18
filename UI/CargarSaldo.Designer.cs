@@ -94,6 +94,7 @@
             Controls.Add(btnCargar);
             Controls.Add(numMonto);
             Name = "CargarSaldo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CargarSaldo";
             Load += CargarSaldo_Load;
             ((System.ComponentModel.ISupportInitialize)numMonto).EndInit();

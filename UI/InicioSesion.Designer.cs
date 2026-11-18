@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            label2 = new Label();
             txtUsuario = new TextBox();
-            txtContraseña = new TextBox();
             btnIniciarSesion = new Button();
             btnRegistrarse = new Button();
             label3 = new Label();
@@ -46,15 +44,6 @@
             label1.TabIndex = 0;
             label1.Text = "Usuario";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(64, 153);
-            label2.Name = "label2";
-            label2.Size = new Size(83, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Contraseña";
-            // 
             // txtUsuario
             // 
             txtUsuario.Location = new Point(186, 95);
@@ -62,16 +51,9 @@
             txtUsuario.Size = new Size(152, 27);
             txtUsuario.TabIndex = 2;
             // 
-            // txtContraseña
-            // 
-            txtContraseña.Location = new Point(186, 153);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(152, 27);
-            txtContraseña.TabIndex = 3;
-            // 
             // btnIniciarSesion
             // 
-            btnIniciarSesion.Location = new Point(220, 215);
+            btnIniciarSesion.Location = new Point(220, 158);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(118, 29);
             btnIniciarSesion.TabIndex = 4;
@@ -81,7 +63,7 @@
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(72, 215);
+            btnRegistrarse.Location = new Point(72, 158);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(118, 29);
             btnRegistrarse.TabIndex = 5;
@@ -102,13 +84,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(417, 281);
+            ClientSize = new Size(417, 225);
             Controls.Add(label3);
             Controls.Add(btnRegistrarse);
             Controls.Add(btnIniciarSesion);
-            Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
-            Controls.Add(label2);
             Controls.Add(label1);
             Name = "InicioSesion";
             StartPosition = FormStartPosition.CenterScreen;
@@ -120,9 +100,7 @@
         #endregion
 
         private Label label1;
-        private Label label2;
         private TextBox txtUsuario;
-        private TextBox txtContraseña;
         private Button btnIniciarSesion;
         private Button btnRegistrarse;
         private Label label3;
