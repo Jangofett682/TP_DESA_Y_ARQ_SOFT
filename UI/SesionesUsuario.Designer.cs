@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SesionesUsuario));
             dgvSesionesUsuario = new DataGridView();
             groupBox1 = new GroupBox();
             label1 = new Label();
@@ -54,14 +55,14 @@
             dgvSesionesUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvSesionesUsuario.BackgroundColor = Color.FromArgb(64, 64, 64);
             dgvSesionesUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvSesionesUsuario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvSesionesUsuario.DefaultCellStyle = dataGridViewCellStyle2;
             dgvSesionesUsuario.GridColor = Color.SeaGreen;
             dgvSesionesUsuario.Location = new Point(7, 87);
             dgvSesionesUsuario.Name = "dgvSesionesUsuario";
@@ -214,9 +215,10 @@
             Controls.Add(groupBox1);
             Controls.Add(dgvSesionesUsuario);
             Controls.Add(flowLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SesionesUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SesionesUsuario";
+            Text = "Sesiones propias";
             Load += SesionesUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSesionesUsuario).EndInit();
             groupBox1.ResumeLayout(false);

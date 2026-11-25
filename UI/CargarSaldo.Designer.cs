@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargarSaldo));
             numMonto = new NumericUpDown();
             btnCargar = new Button();
             btnCancelar = new Button();
@@ -119,9 +120,10 @@
             Controls.Add(btnCargar);
             Controls.Add(numMonto);
             Controls.Add(flowLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CargarSaldo";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CargarSaldo";
+            Text = "Cargar saldo";
             Load += CargarSaldo_Load;
             ((System.ComponentModel.ISupportInitialize)numMonto).EndInit();
             ResumeLayout(false);
