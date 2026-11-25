@@ -17,5 +17,6 @@ namespace Entity
         public string Titulo { get => titulo; set => titulo = value; }
         public string Resolucion { get => resolucion; set => resolucion = value; }
         public string Configuracion { get => configuracion; set => configuracion = value; }
+        public int CostoPuntos { get; set; }
     }
 }

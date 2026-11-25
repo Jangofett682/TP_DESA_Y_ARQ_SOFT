@@ -1,4 +1,4 @@
-﻿using Azure.Messaging;
+using Azure.Messaging;
 using DAL.Models;
 using Entity;
 using Mapper;
@@ -39,53 +39,71 @@ namespace DAL
         //Alta de varias sesiones
         public void AltaConjunta(List<SesionEntity> listaSesiones)
         {
-            try
+            CloudGamingContext.EjecutarTransaccion(db =>
             {
-                using (var db = new CloudGamingContext())
+                foreach (var sesion in listaSesiones)
                 {
-                    var listaDB = SesionMapper.MapBD(listaSesiones);
-
-                    foreach (var sesionBD in listaDB)
-                    {
-                        db.Sesión.Add(sesionBD);
-                    }
-
+                    var sesionBD = SesionMapper.Map(sesion);
+                    RegistrarCapacidad(db, sesion, sesionBD);
+                    db.Sesión.Add(sesionBD);
                     db.SaveChanges();
-
                 }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            });
         }
 
         public void RegistrarSesionSaldo(SesionEntity sesion, double nuevoSaldo)
         {
-            try
+            CloudGamingContext.EjecutarTransaccion(db =>
             {
-                using(var trx = new TransactionScope())
-                {
-                    using (var db = new CloudGamingContext())
-                    {
-                        var nuevaSesionBD = SesionMapper.Map(sesion);
-                        db.Sesión.Add(nuevaSesionBD);
+                var nuevaSesionBD = SesionMapper.Map(sesion);
+                RegistrarCapacidad(db, sesion, nuevaSesionBD);
 
-                        //Actualización saldo
-                        var jugadorBD = db.Jugador
-                            .FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
-                        if (jugadorBD != null)
+                var jugadorBD = db.Jugador.FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
+                if (jugadorBD != null)
+                {
+                    decimal saldo = Convert.ToDecimal(nuevoSaldo);
+                    if (nuevaSesionBD.PuntosConsumidos.HasValue)
+                    {
+                        decimal monto = decimal.Round(nuevaSesionBD.MontoTotal, 0, MidpointRounding.AwayFromZero);
+                        saldo = jugadorBD.SaldoDisponible - monto;
+                        if (saldo < 0)
                         {
-                            jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
+                            throw new InvalidOperationException("Saldo insuficiente para alquilar servidor");
                         }
-                        db.SaveChanges();
+                        nuevaSesionBD.MontoTotal = monto;
                     }
-                    trx.Complete();
+                    jugadorBD.SaldoDisponible = saldo;
                 }
-            }
-            catch(Exception ex)
+
+                db.Sesión.Add(nuevaSesionBD);
+                db.SaveChanges();
+            });
+        }
+
+        private void RegistrarCapacidad(CloudGamingContext db, SesionEntity sesion, Sesión sesionBD)
+        {
+            if (!sesion.PuntosConsumidos.HasValue)
             {
-                throw;
+                return;
+            }
+
+            DateTime inicio = DateTime.UtcNow;
+            DateTime fin = inicio.AddHours(sesion.HorasReservadas);
+            ValidarPuntos(db, sesionBD, inicio, fin, sesion.CapacidadPuntosServidor);
+            sesionBD.InicioUtc = inicio;
+            sesionBD.FinUtc = fin;
+        }
+
+        private void ValidarPuntos(CloudGamingContext db, Sesión sesion, DateTime inicio, DateTime fin, int capacidad)
+        {
+            int puntosOcupados = db.Sesión
+                .Where(s => s.ServidorId == sesion.ServidorId && s.IdSesion != sesion.IdSesion
+                    && s.InicioUtc < fin && s.FinUtc > inicio)
+                .Sum(s => s.PuntosConsumidos) ?? 0;
+
+            if (puntosOcupados + sesion.PuntosConsumidos.GetValueOrDefault() > capacidad)
+            {
+                throw new InvalidOperationException("El servidor no tiene puntos libres suficientes");
             }
         }
 
@@ -130,36 +148,50 @@ namespace DAL
             }
         }
 
-        //Método Modificar, SesionEntity como parámetro
+        //Método Modificar, id como parámetro
         public void Modificar(SesionEntity sesionModificada, double nuevoSaldo)
         {
-            try
+            CloudGamingContext.EjecutarTransaccion(db =>
             {
-                using(var trx = new TransactionScope())
+                var sesionBD = db.Sesión.FirstOrDefault(s => s.IdSesion == sesionModificada.IdSesion)
+                    ?? throw new InvalidOperationException("La sesión no existe");
+                var jugadorBD = db.Jugador.FirstOrDefault(j => j.NombreUsuario == sesionBD.NombreUsuario);
+                decimal monto = Convert.ToDecimal(sesionModificada.MontoTotal);
+                decimal saldo = Convert.ToDecimal(nuevoSaldo);
+
+                if (sesionBD.InicioUtc is DateTime inicio && sesionBD.FinUtc is DateTime finAnterior)
                 {
-                    using (var db = new CloudGamingContext())
+                    if (finAnterior <= DateTime.UtcNow)
                     {
-                        var sesionBD = db.Sesión.FirstOrDefault(s => s.IdSesion == sesionModificada.IdSesion);
-                        if(sesionBD != null)
-                        {
-                            sesionBD.HorasReservadas = Convert.ToDecimal(sesionModificada.HorasReservadas);
-                            sesionBD.MontoTotal = Convert.ToDecimal(sesionModificada.MontoTotal);
-                        }
-                        var jugadorBD = db.Jugador.FirstOrDefault(j => j.NombreUsuario == sesionModificada.NombreUsuario);
-                        if (jugadorBD != null)
-                        {
-                            jugadorBD.SaldoDisponible = Convert.ToDecimal(nuevoSaldo);
-                        }
-                        db.SaveChanges();
+                        throw new InvalidOperationException("La reserva ya terminó");
                     }
-                    trx.Complete();
+
+                    DateTime fin = inicio.AddHours(sesionModificada.HorasReservadas);
+                    if (fin > finAnterior)
+                    {
+                        ValidarPuntos(db, sesionBD, finAnterior, fin, sesionModificada.CapacidadPuntosServidor);
+                    }
+                    sesionBD.FinUtc = fin;
+
+                    monto = decimal.Round(monto, 0, MidpointRounding.AwayFromZero);
+                    if (jugadorBD != null)
+                    {
+                        saldo = jugadorBD.SaldoDisponible - (monto - sesionBD.MontoTotal);
+                        if (saldo < 0)
+                        {
+                            throw new InvalidOperationException("Saldo insuficiente para ampliar la reserva");
+                        }
+                    }
                 }
-                
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
+                sesionBD.HorasReservadas = Convert.ToDecimal(sesionModificada.HorasReservadas);
+                sesionBD.MontoTotal = monto;
+                if (jugadorBD != null)
+                {
+                    jugadorBD.SaldoDisponible = saldo;
+                }
+                db.SaveChanges();
+            });
         }
 
         public List<SesionEntity>ObtenerPorUsuario(string nombreUsuario)

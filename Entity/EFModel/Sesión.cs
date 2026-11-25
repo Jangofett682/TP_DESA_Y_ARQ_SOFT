@@ -17,6 +17,10 @@ public partial class Sesión
 
     public decimal MontoTotal { get; set; }
 
+    public DateTime? InicioUtc { get; set; }
+    public DateTime? FinUtc { get; set; }
+    public int? PuntosConsumidos { get; set; }
+
     public virtual Juego Juego { get; set; } = null!;
 
     public virtual Jugador NombreUsuarioNavigation { get; set; } = null!;

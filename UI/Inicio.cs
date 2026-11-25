@@ -1,4 +1,4 @@
-using BLL;
+﻿using BLL;
 using Entity;
 using Mapper;
 using UI;
@@ -14,18 +14,18 @@ namespace PlantillaCapas
         public Form1()
         {
             InitializeComponent();
+            ServidorIDAlta.DropDown += (_, _) => CargarServidores();
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CargarServidores();
             CargarJuegos();
             CargarMensajeBienvenida();
             AutocompletarUsuario();
             DeshabilitarCampoPrecio();
             CargarComboJuegos();
-            CargarComboServidores();
+            CargarServidores();
         }
 
         private void DeshabilitarCampoPrecio()
@@ -44,7 +44,7 @@ namespace PlantillaCapas
         {
             try
             {
-                txtUsuarioAlta.Text = SesionJugador.GetInstance().NombreUsuario;
+                txtUsuarioAlta.Text = SesionJugador.GetInstance().JugadorUsuario;
                 txtUsuarioAlta.ReadOnly = true;
             }
             catch (Exception ex)
@@ -57,8 +57,27 @@ namespace PlantillaCapas
         {
             try
             {
-                dgvServidores.DataSource = null;
-                dgvServidores.DataSource = servidorBusiness.ObtenerServidoresCompatiblesDisponibles(Convert.ToInt32(cbJuegoIDAlta.SelectedValue));
+                if (cbJuegoIDAlta.SelectedItem is not JuegoEntity juego)
+                {
+                    return;
+                }
+
+                var idSeleccionado = ServidorIDAlta.SelectedValue;
+                var servidores = servidorBusiness.ObtenerServidoresCompatiblesDisponibles(juego.IdJuego, incluirSinCupo: true);
+                dgvServidores.DataSource = servidores;
+                dgvServidores.Columns[nameof(ServidorEntity.PuntosLibres)].HeaderText = "Puntos libres";
+                dgvServidores.Columns[nameof(ServidorEntity.CapacidadPuntos)].HeaderText = "Puntos totales";
+                dgvServidores.Columns[nameof(ServidorEntity.PuntosOcupados)].Visible = false;
+
+                int costo = juego.CostoPuntos;
+                ServidorIDAlta.ValueMember = nameof(ServidorEntity.IdServidor);
+                ServidorIDAlta.DisplayMember = nameof(ServidorEntity.IdServidor);
+                var conCupo = servidores.Where(s => s.PuntosLibres >= costo).ToList();
+                ServidorIDAlta.DataSource = conCupo;
+                if (conCupo.Any(s => Equals(s.IdServidor, idSeleccionado)))
+                {
+                    ServidorIDAlta.SelectedValue = idSeleccionado;
+                }
             }
             catch (Exception ex)
             {
@@ -92,6 +111,7 @@ namespace PlantillaCapas
             {
                 dgvJuegos.DataSource = null;
                 dgvJuegos.DataSource = juegoBusiness.GetAll();
+                dgvJuegos.Columns[nameof(JuegoEntity.CostoPuntos)].HeaderText = "Costo en puntos";
             }
             catch (Exception ex)
             {
@@ -136,28 +156,13 @@ namespace PlantillaCapas
             try
             {
                 cbJuegoIDAlta.DataSource = null;
-                cbJuegoIDAlta.DataSource = juegoBusiness.GetAll();
-                cbJuegoIDAlta.ValueMember = "idJuego";
-                cbJuegoIDAlta.DisplayMember = "titulo";
+                cbJuegoIDAlta.ValueMember = nameof(JuegoEntity.IdJuego);
+                cbJuegoIDAlta.DisplayMember = nameof(JuegoEntity.Titulo);
+                cbJuegoIDAlta.DataSource = dgvJuegos.DataSource;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en cargar lista de juegos");
-            }
-        }
-
-        private void CargarComboServidores()
-        {
-            try
-            {
-                ServidorIDAlta.DataSource = null;
-                ServidorIDAlta.DataSource = servidorBusiness.ObtenerServidoresCompatiblesDisponibles(Convert.ToInt32(cbJuegoIDAlta.SelectedValue));
-                ServidorIDAlta.ValueMember = "idServidor";
-                ServidorIDAlta.DisplayMember = "idServidor";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error en cargar lista de servidores compatibles");
             }
         }
 
@@ -203,7 +208,7 @@ namespace PlantillaCapas
                 };
 
                 sesionBusiness.GuardarSesion(nuevaSesion);
-                CargarComboServidores();
+                CargarServidores();
                 CargarMensajeBienvenida();
                 MessageBox.Show("Sesión guardada exitosamente");
             }
@@ -221,9 +226,8 @@ namespace PlantillaCapas
         private void cbJuegoIDAlta_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Verifico que se haya inicializado correctamente el combobox y no como null
-            if (cbJuegoIDAlta.SelectedValue != null && cbJuegoIDAlta.SelectedValue is int idJuego)
+            if (cbJuegoIDAlta.SelectedItem is JuegoEntity)
             {
-                CargarComboServidores();
                 CargarServidores();
             }
         }
@@ -233,6 +237,8 @@ namespace PlantillaCapas
             using (SesionesUsuario sesionesUsuario = new SesionesUsuario())
             {
                 sesionesUsuario.ShowDialog();
+                CargarServidores();
+                CargarMensajeBienvenida();
             }
         }
 

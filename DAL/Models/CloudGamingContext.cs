@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace DAL.Models;
 
@@ -22,6 +24,27 @@ public partial class CloudGamingContext : DbContext
     public virtual DbSet<Servidor> Servidor { get; set; }
 
     public virtual DbSet<Sesión> Sesión { get; set; }
+
+    public static void EjecutarTransaccion(Action<CloudGamingContext> operacion)
+    {
+        for (int intento = 0; ; intento++)
+        {
+            try
+            {
+                using (var db = new CloudGamingContext())
+                {
+                    using var transaccion = db.Database.BeginTransaction(IsolationLevel.Serializable);
+                    operacion(db);
+                    transaccion.Commit();
+                    return;
+                }
+            }
+            catch (Exception ex) when (intento < 3 && ex.GetBaseException() is SqlException { Number: 1205 })
+            {
+                // La base revirtió esta transacción. Volvemos a intentar con otro contexto.
+            }
+        }
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -98,10 +121,14 @@ public partial class CloudGamingContext : DbContext
         modelBuilder.Entity<Sesión>(entity =>
         {
             entity.HasKey(e => e.IdSesion);
+            entity.HasIndex(e => new { e.ServidorId, e.FinUtc }, "IX_Sesion_Servidor_FinUtc");
 
             entity.Property(e => e.IdSesion).HasColumnName("ID_SESION");
+            entity.Property(e => e.InicioUtc).HasColumnName("INICIO_UTC");
+            entity.Property(e => e.FinUtc).HasColumnName("FIN_UTC");
+            entity.Property(e => e.PuntosConsumidos).HasColumnName("PUNTOS_CONSUMIDOS");
             entity.Property(e => e.HorasReservadas)
-                .HasColumnType("decimal(18, 0)")
+                .HasColumnType("decimal(18, 4)")
                 .HasColumnName("HORAS_RESERVADAS");
             entity.Property(e => e.JuegoId).HasColumnName("JUEGO_ID");
             entity.Property(e => e.MontoTotal)

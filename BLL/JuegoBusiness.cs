@@ -16,6 +16,10 @@ namespace BLL
             try
             {
                 List<JuegoEntity> listaJuegos = juegoDAO.getAll();
+                foreach (var juego in listaJuegos)
+                {
+                    juego.CostoPuntos = ServidorBusiness.ObtenerCostoPuntos(juego);
+                }
                 return listaJuegos;
             }
             catch (Exception ex)

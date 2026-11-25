@@ -1,4 +1,4 @@
-﻿
+
 using DAL;
 using Entity;
 
@@ -125,11 +125,30 @@ namespace BLL
             }
         }
 
-        public List<ServidorEntity>ObtenerServidoresCompatiblesDisponibles(int idJuego)
+        public int ObtenerCapacidadPuntos(ServidorEntity servidor)
+        {
+            int cpu = ObtenerGamaCPU(servidor.Cpu);
+            int gpu = ObtenerGamaGPU(servidor.Gpu);
+            long ram = ExtraerGB(servidor.Ram);
+            return (int)Math.Min(Math.Min(cpu * 25, gpu * 25), ram * 5);
+        }
+
+        public static int ObtenerCostoPuntos(JuegoEntity juego)
+        {
+            return juego.Configuracion.Trim().ToUpperInvariant() switch
+            {
+                "MEDIA" => 25,
+                "ALTA" => 40,
+                "ULTRA" => 60,
+                _ => 0
+            };
+        }
+
+        public List<ServidorEntity> ObtenerServidoresCompatiblesDisponibles(int idJuego, bool incluirSinCupo = false)
         {
             try
             {
-                List<ServidorEntity> listaServidores = servidorDAO.getAll();
+                List<ServidorEntity> listaServidores = servidorDAO.ObtenerServidoresConOcupacion(DateTime.UtcNow);
                 JuegoEntity juego = juegoDAO.BuscarPorID(idJuego);
 
                 if(juego == null)
@@ -141,7 +160,16 @@ namespace BLL
                     .Where(s=>s.Estado != null && s.Estado.Equals("Disponible", StringComparison.OrdinalIgnoreCase))
                     .Where(s => EsCompatible(s, juego))
                     .ToList();
-                return servidoresHabilitados;
+                foreach (var servidor in servidoresHabilitados)
+                {
+                    servidor.CapacidadPuntos = ObtenerCapacidadPuntos(servidor);
+                    servidor.PuntosLibres = Math.Max(0, servidor.CapacidadPuntos - servidor.PuntosOcupados);
+                }
+
+                int costo = ObtenerCostoPuntos(juego);
+                return incluirSinCupo
+                    ? servidoresHabilitados
+                    : servidoresHabilitados.Where(s => s.PuntosLibres >= costo).ToList();
             }
             catch(Exception ex)
             {
@@ -152,8 +180,7 @@ namespace BLL
         {
             try
             {
-                List<ServidorEntity> listaServidores = servidorDAO.getAll();
-                return listaServidores;
+                return servidorDAO.getAll();
             }
             catch (Exception ex)
             {

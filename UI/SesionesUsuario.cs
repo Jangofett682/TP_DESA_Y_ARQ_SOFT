@@ -1,4 +1,4 @@
-﻿using BLL;
+using BLL;
 using DAL;
 using Entity;
 using System;
@@ -111,7 +111,7 @@ namespace UI
                 {
                     IdSesion = Convert.ToInt32(cbIDModificar.SelectedValue),
                     HorasReservadas = Convert.ToDouble(numHorasModificacion.Value),
-                    NombreUsuario = SesionJugador.GetInstance().NombreUsuario,
+                    NombreUsuario = SesionJugador.GetInstance().JugadorUsuario,
                 };
                 sesionBusiness.Modificar(sesionModificada);
                 MessageBox.Show("Sesion modificada exitosamente");

@@ -38,6 +38,9 @@ namespace Mapper
                 {
                     IdSesion = sesion.IdSesion,
                     JuegoId = sesion.JuegoId,
+                    InicioUtc = sesion.InicioUtc,
+                    FinUtc = sesion.FinUtc,
+                    PuntosConsumidos = sesion.PuntosConsumidos,
                     ServidorId = sesion.ServidorId,
                     NombreUsuario = sesion.NombreUsuario,
                     HorasReservadas = Convert.ToDouble(sesion.HorasReservadas),
@@ -84,6 +87,9 @@ namespace Mapper
                 {
                     IdSesion = sesion.IdSesion,
                     JuegoId = sesion.JuegoId,
+                    InicioUtc = sesion.InicioUtc,
+                    FinUtc = sesion.FinUtc,
+                    PuntosConsumidos = sesion.PuntosConsumidos,
                     ServidorId = sesion.ServidorId,
                     NombreUsuario = sesion.NombreUsuario,
                     HorasReservadas = Convert.ToDecimal(sesion.HorasReservadas),

@@ -1,4 +1,4 @@
-﻿using DAL;
+using DAL;
 using Entity;
 using Mapper;
 using System;
@@ -53,7 +53,8 @@ namespace BLL
 
         public void ValidarReglasNegocio(SesionEntity sesion)
         {
-            if (sesion.HorasReservadas <= 0)
+            sesion.HorasReservadas = Math.Round(sesion.HorasReservadas, 4);
+            if (!double.IsFinite(sesion.HorasReservadas) || sesion.HorasReservadas <= 0)
             {
                 throw new Exception("Las horas reservadas deben ser más de 0");
             }
@@ -74,28 +75,7 @@ namespace BLL
             try
             {
                 ValidarReglasNegocio(nuevaSesion);
-                //Obtenemos precio por hora
-                ServidorEntity servidor = servidorDAO.ObtenerPorID(nuevaSesion.ServidorId);
-                JuegoEntity juego = juegoDAO.BuscarPorID(nuevaSesion.JuegoId);
-
-                if(servidor == null)
-                {
-                    throw new Exception("El servidor no existe");
-                }
-                if(juego == null)
-                {
-                    throw new Exception("El juego no existe");
-                }
-                //Valido estado
-                if(!servidor.Estado.Equals("Disponible", StringComparison.OrdinalIgnoreCase))
-                {
-                    throw new Exception("El servidor seleccionado no está disponible");
-                }
-                //Valido compatibilidad de hardware
-                if (!servidorBusiness.EsCompatible(servidor, juego))
-                {
-                    throw new Exception($"El servidor no cumple con las especificaciones para la configuración requerida ({juego.Configuracion}) por el juego {juego.Titulo}");
-                }
+                ServidorEntity servidor = PrepararCapacidad(nuevaSesion);
                 double monto = nuevaSesion.HorasReservadas * servidor.PrecioHora;
                 nuevaSesion.MontoTotal = monto;
 
@@ -107,12 +87,41 @@ namespace BLL
                 //Persistencia y actualización de singleton
                 double nuevoSaldo = jugador.SaldoDisponible - monto;
                 sesionDAO.RegistrarSesionSaldo(nuevaSesion, nuevoSaldo);
-                SesionJugador.GetInstance().ActualizarSaldoDisponible(nuevoSaldo);
+                SesionJugador.GetInstance().ActualizarSaldoDisponible(jugadorDAO.Autenticar(nuevaSesion.NombreUsuario).SaldoDisponible);
             }
             catch(Exception ex)
             {
                 throw;
             }
+        }
+
+        private ServidorEntity PrepararCapacidad(SesionEntity sesion)
+        {
+            //Obtenemos precio por hora
+            ServidorEntity servidor = servidorDAO.ObtenerPorID(sesion.ServidorId);
+            JuegoEntity juego = juegoDAO.BuscarPorID(sesion.JuegoId);
+
+            if(servidor == null)
+            {
+                throw new Exception("El servidor no existe");
+            }
+            if(juego == null)
+            {
+                throw new Exception("El juego no existe");
+            }
+            //Valido estado
+            if(!servidor.Estado.Equals("Disponible", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("El servidor seleccionado no está disponible");
+            }
+            //Valido compatibilidad de hardware
+            if (!servidorBusiness.EsCompatible(servidor, juego))
+            {
+                throw new Exception($"El servidor no cumple con las especificaciones para la configuración requerida ({juego.Configuracion}) por el juego {juego.Titulo}");
+            }
+            sesion.CapacidadPuntosServidor = servidorBusiness.ObtenerCapacidadPuntos(servidor);
+            sesion.PuntosConsumidos = ServidorBusiness.ObtenerCostoPuntos(juego);
+            return servidor;
         }
 
         public void GuardarConjunto(List<SesionEntity> listaSesiones)
@@ -123,16 +132,12 @@ namespace BLL
                 {
                     throw new Exception("La lista está vacía");
                 }
-                //Utilizo transacción para validar reglas de negocio
-                using (var trx = new TransactionScope())
+                foreach (var sesion in listaSesiones)
                 {
-                    foreach (var sesion in listaSesiones)
-                    {
-                        ValidarReglasNegocio(sesion);
-                    }
-                    aplicacionDAO.AltaConjunta(listaSesiones);
-                    trx.Complete();
+                    ValidarReglasNegocio(sesion);
+                    PrepararCapacidad(sesion);
                 }
+                aplicacionDAO.AltaConjunta(listaSesiones);
             }
             catch (Exception ex)
             {
@@ -181,6 +186,8 @@ namespace BLL
                 {
                     sesionModificada.JuegoId = sesionExistente.JuegoId;
                 }
+                ValidarReglasNegocio(sesionModificada);
+                sesionModificada.CapacidadPuntosServidor = servidorBusiness.ObtenerCapacidadPuntos(servidor);
                 double nuevoTotal = sesionModificada.HorasReservadas * servidor.PrecioHora;
                 double porcentajeDescuento = SesionMapper.CalcularPorcentajeHoras(sesionModificada.HorasReservadas);
                 double diferenciaMonto = nuevoTotal - sesionExistente.MontoTotal;
@@ -202,16 +209,11 @@ namespace BLL
                 //Calculo de nuevo saldo para el jugador
                 double nuevoSaldoJugador = jugadorExistente.SaldoDisponible - diferenciaMonto;
 
-                using (var trx = new TransactionScope())
-                {
-                    ValidarReglasNegocio(sesionModificada);
-                    aplicacionDAO.Modificar(sesionModificada, nuevoSaldoJugador);
-                    trx.Complete();
-                }
+                aplicacionDAO.Modificar(sesionModificada, nuevoSaldoJugador);
 
-                if (SesionJugador.GetInstance().NombreUsuario == sesionExistente.NombreUsuario)
+                if (SesionJugador.GetInstance().JugadorUsuario == sesionExistente.NombreUsuario)
                 {
-                    SesionJugador.GetInstance().ActualizarSaldoDisponible(nuevoSaldoJugador);
+                    SesionJugador.GetInstance().ActualizarSaldoDisponible(jugadorDAO.Autenticar(sesionExistente.NombreUsuario).SaldoDisponible);
                 }
             }
             catch (Exception ex)
@@ -224,7 +226,7 @@ namespace BLL
         {
             try
             {
-                string usuarioActivo = SesionJugador.GetInstance().NombreUsuario;
+                string usuarioActivo = SesionJugador.GetInstance().JugadorUsuario;
                 if (string.IsNullOrEmpty(usuarioActivo))
                 {
                     throw new Exception("No hay ninguna sesión activa");

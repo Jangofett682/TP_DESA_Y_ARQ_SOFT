@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +21,12 @@ namespace Entity
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public double HorasReservadas { get => horasReservadas; set => horasReservadas = value; }
         public double MontoTotal { get => montoTotal; set => montoTotal = value; }
+
+        public DateTime? InicioUtc { get; set; }
+        public DateTime? FinUtc { get; set; }
+        public int? PuntosConsumidos { get; set; }
+        [System.ComponentModel.Browsable(false)]
+        public int CapacidadPuntosServidor { get; set; }
 
         //Propiedades auxiliares
         public double PrecioHoraServidor { get; set; }

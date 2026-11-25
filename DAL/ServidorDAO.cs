@@ -24,6 +24,25 @@ namespace DAL
             }
         }
 
+        public List<ServidorEntity> ObtenerServidoresConOcupacion(DateTime ahoraUtc)
+        {
+            using var db = new CloudGamingContext();
+            var servidores = db.Servidor.Select(servidor => new
+            {
+                Servidor = servidor,
+                Ocupacion = servidor.Sesión
+                    .Where(s => s.InicioUtc <= ahoraUtc && s.FinUtc > ahoraUtc)
+                    .Sum(s => s.PuntosConsumidos) ?? 0
+            }).ToList();
+
+            return servidores.Select(fila =>
+            {
+                var servidor = ServidorMapper.Map(fila.Servidor);
+                servidor.PuntosOcupados = fila.Ocupacion;
+                return servidor;
+            }).ToList();
+        }
+
         public ServidorEntity ObtenerPorID(int idServidor)
         {
             try
