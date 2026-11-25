@@ -74,7 +74,10 @@ namespace PlantillaCapas
                 double saldoActivo = SesionJugador.GetInstance().SaldoDisponible;
 
                 lblUsuario.Text = string.Empty;
-                lblUsuario.Text = $"Bienvenido, {usuarioActivo};\nSaldo actual ${saldoActivo:N2}";
+                lblUsuario.Text = $"Bienvenido,";
+                lblUsuarioNombre.Text = usuarioActivo;
+
+                lblSaldoActual.Text = $"Saldo actual ${saldoActivo:N2}";
             }
             catch (Exception ex)
             {
@@ -162,7 +165,7 @@ namespace PlantillaCapas
         {
             try
             {
-                if (ServidorIDAlta.SelectedItem is ServidorEntity servidor && double.TryParse(txtHorasReservadasAlta.Text, out double horas) && horas>0)
+                if (ServidorIDAlta.SelectedItem is ServidorEntity servidor && double.TryParse(txtHorasReservadasAlta.Text, out double horas) && horas > 0)
                 {
                     double totalEstimado = horas * servidor.PrecioHora;
                     txtMontoTotalAlta.Text = $"${totalEstimado:N2}";
@@ -241,6 +244,11 @@ namespace PlantillaCapas
         private void ServidorIDAlta_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcularMontoEstimado();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

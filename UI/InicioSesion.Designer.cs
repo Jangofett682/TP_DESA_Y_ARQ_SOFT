@@ -38,45 +38,58 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(64, 98);
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(85, 95);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
+            label1.Size = new Size(79, 28);
             label1.TabIndex = 0;
             label1.Text = "Usuario";
             // 
             // txtUsuario
             // 
+            txtUsuario.Font = new Font("Segoe UI", 12F);
             txtUsuario.Location = new Point(186, 95);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(152, 27);
+            txtUsuario.Size = new Size(145, 34);
             txtUsuario.TabIndex = 2;
             // 
             // btnIniciarSesion
             // 
-            btnIniciarSesion.Location = new Point(220, 158);
+            btnIniciarSesion.BackColor = Color.FromArgb(64, 64, 64);
+            btnIniciarSesion.FlatStyle = FlatStyle.Flat;
+            btnIniciarSesion.Font = new Font("Segoe UI", 12F);
+            btnIniciarSesion.ForeColor = Color.White;
+            btnIniciarSesion.Location = new Point(219, 158);
             btnIniciarSesion.Name = "btnIniciarSesion";
-            btnIniciarSesion.Size = new Size(118, 29);
+            btnIniciarSesion.Size = new Size(140, 37);
             btnIniciarSesion.TabIndex = 4;
             btnIniciarSesion.Text = "Iniciar sesión";
-            btnIniciarSesion.UseVisualStyleBackColor = true;
+            btnIniciarSesion.UseVisualStyleBackColor = false;
             btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(72, 158);
+            btnRegistrarse.BackColor = Color.FromArgb(64, 64, 64);
+            btnRegistrarse.FlatStyle = FlatStyle.Flat;
+            btnRegistrarse.Font = new Font("Segoe UI", 12F);
+            btnRegistrarse.ForeColor = Color.White;
+            btnRegistrarse.Location = new Point(64, 158);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(118, 29);
+            btnRegistrarse.Size = new Size(140, 37);
             btnRegistrarse.TabIndex = 5;
             btnRegistrarse.Text = "Registrarse";
-            btnRegistrarse.UseVisualStyleBackColor = true;
+            btnRegistrarse.UseVisualStyleBackColor = false;
             btnRegistrarse.Click += btnRegistrarse_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(140, 25);
+            label3.Font = new Font("Bahnschrift SemiBold SemiConden", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Honeydew;
+            label3.Location = new Point(121, 26);
             label3.Name = "label3";
-            label3.Size = new Size(104, 20);
+            label3.Size = new Size(165, 34);
             label3.TabIndex = 6;
             label3.Text = "Cloud Gaming";
             // 
@@ -84,6 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(417, 225);
             Controls.Add(label3);
             Controls.Add(btnRegistrarse);

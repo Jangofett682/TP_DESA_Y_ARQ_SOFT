@@ -37,7 +37,7 @@ namespace UI
                 double saldoActivo = SesionJugador.GetInstance().SaldoDisponible;
 
                 lblUsuario.Text = string.Empty;
-                lblUsuario.Text = $"Bienvenido, {usuarioActivo};\nSaldo actual ${saldoActivo:N2}";
+                lblUsuario.Text = $"Gestione sus sesiones, {usuarioActivo};\nSaldo actual ${saldoActivo:N2}";
             }
             catch (Exception ex)
             {

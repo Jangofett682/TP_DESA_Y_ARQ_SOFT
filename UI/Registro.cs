@@ -30,12 +30,12 @@ namespace UI
         {
             try
             {
-                if(string.IsNullOrEmpty(txtMail.Text)|| string.IsNullOrEmpty(txtNombreApellido.Text) || string.IsNullOrEmpty(txtUsuario.Text))
+                if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtNombreApellido.Text) || string.IsNullOrEmpty(txtUsuario.Text))
                 {
                     MessageBox.Show("Por favor complete todos los campos");
                     return;
                 }
-                if(!double.TryParse(txtSaldo.Text, out double saldo))
+                if (!double.TryParse(txtSaldo.Text, out double saldo))
                 {
                     MessageBox.Show("Por favor ingrese un saldo numérico");
                     return;
@@ -54,10 +54,15 @@ namespace UI
                 SesionJugador.GetInstance().IniciarSesion(nuevoJugador);
                 this.DialogResult = DialogResult.OK;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en registrarse");
             }
+        }
+
+        private void Registro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

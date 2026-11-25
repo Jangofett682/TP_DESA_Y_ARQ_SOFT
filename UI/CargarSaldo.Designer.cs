@@ -33,66 +33,92 @@
             btnCancelar = new Button();
             label1 = new Label();
             lblUsuarioActivo = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)numMonto).BeginInit();
             SuspendLayout();
             // 
             // numMonto
             // 
-            numMonto.Location = new Point(168, 77);
+            numMonto.Font = new Font("Segoe UI", 12F);
+            numMonto.Location = new Point(179, 85);
             numMonto.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numMonto.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numMonto.Name = "numMonto";
-            numMonto.Size = new Size(150, 27);
+            numMonto.Size = new Size(150, 34);
             numMonto.TabIndex = 0;
             numMonto.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(68, 143);
+            btnCargar.BackColor = Color.SeaGreen;
+            btnCargar.FlatStyle = FlatStyle.Flat;
+            btnCargar.Font = new Font("Segoe UI", 12F);
+            btnCargar.ForeColor = Color.White;
+            btnCargar.Location = new Point(57, 143);
             btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(94, 29);
+            btnCargar.Size = new Size(116, 50);
             btnCargar.TabIndex = 1;
             btnCargar.Text = "Cargar";
-            btnCargar.UseVisualStyleBackColor = true;
+            btnCargar.UseVisualStyleBackColor = false;
             btnCargar.Click += btnCargar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(224, 143);
+            btnCancelar.BackColor = Color.FromArgb(64, 64, 64);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Segoe UI", 12F);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(213, 143);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(94, 29);
+            btnCancelar.Size = new Size(116, 50);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 79);
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(22, 85);
             label1.Name = "label1";
-            label1.Size = new Size(114, 20);
+            label1.Size = new Size(151, 28);
             label1.TabIndex = 3;
             label1.Text = "Monto a cargar:";
             // 
             // lblUsuarioActivo
             // 
             lblUsuarioActivo.AutoSize = true;
-            lblUsuarioActivo.Location = new Point(3, 9);
+            lblUsuarioActivo.BackColor = Color.SeaGreen;
+            lblUsuarioActivo.Font = new Font("Segoe UI", 12F);
+            lblUsuarioActivo.ForeColor = Color.White;
+            lblUsuarioActivo.Location = new Point(3, 0);
             lblUsuarioActivo.Name = "lblUsuarioActivo";
-            lblUsuarioActivo.Size = new Size(110, 20);
+            lblUsuarioActivo.Size = new Size(146, 28);
             lblUsuarioActivo.TabIndex = 4;
             lblUsuarioActivo.Text = "Usuario activo: ";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.SeaGreen;
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(394, 31);
+            flowLayoutPanel1.TabIndex = 15;
             // 
             // CargarSaldo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(368, 197);
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(394, 235);
             Controls.Add(lblUsuarioActivo);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnCargar);
             Controls.Add(numMonto);
+            Controls.Add(flowLayoutPanel1);
             Name = "CargarSaldo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CargarSaldo";
@@ -109,5 +135,6 @@
         private Button btnCancelar;
         private Label label1;
         private Label lblUsuarioActivo;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -36,7 +36,9 @@ C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio cola
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.CargarSaldo.resources
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\PlantillaCapas.Form1.resources
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.InicioSesion.resources
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.Properties.Resources.resources
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.Registro.resources
+C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.SesionesUsuario.resources
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.csproj.GenerateResource.cache
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.AssemblyInfoInputs.cache
@@ -168,4 +170,3 @@ C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio cola
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.pdb
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.genruntimeconfig.cache
 C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\ref\UI.dll
-C:\Users\ragoj\OneDrive\Documentos\UAI\2026 2-2\DAS\CloudGaming\Repositorio colaborativo\TP_DESA_Y_ARQ_SOFT\UI\obj\Debug\net8.0-windows\UI.SesionesUsuario.resources
