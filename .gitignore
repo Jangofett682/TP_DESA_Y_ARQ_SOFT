@@ -1,0 +1,21 @@
+# Salidas de compilación y archivos generados por .NET y NuGet
+[Bb]in/
+[Oo]bj/
+*.binlog
+*.nupkg
+*.snupkg
+
+# Cachés y preferencias locales de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Resultados locales de pruebas
+[Tt]est[Rr]esults/
+*.trx
+
+# Archivos temporales de Windows
+Thumbs.db
+Desktop.ini
