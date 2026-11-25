@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioSesion));
             label1 = new Label();
             txtUsuario = new TextBox();
             btnIniciarSesion = new Button();
@@ -104,9 +105,10 @@
             Controls.Add(btnIniciarSesion);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InicioSesion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "InicioSesion";
+            Text = "Iniciar sesión";
             ResumeLayout(false);
             PerformLayout();
         }
