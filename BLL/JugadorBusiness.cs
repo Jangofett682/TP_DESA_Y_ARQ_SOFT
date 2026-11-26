@@ -45,6 +45,8 @@ namespace BLL
             }
         }
 
+
+
         public JugadorEntity Autenticar(string nombreUsuario)
         {
             try

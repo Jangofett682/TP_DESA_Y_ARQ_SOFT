@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SesionesUsuario));
             dgvSesionesUsuario = new DataGridView();
@@ -52,22 +53,36 @@
             // 
             // dgvSesionesUsuario
             // 
-            dgvSesionesUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvSesionesUsuario.AllowUserToAddRows = false;
+            dgvSesionesUsuario.AllowUserToDeleteRows = false;
+            dgvSesionesUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvSesionesUsuario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             dgvSesionesUsuario.BackgroundColor = Color.FromArgb(64, 64, 64);
+            dgvSesionesUsuario.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle1.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle1.SelectionForeColor = Color.SeaGreen;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvSesionesUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvSesionesUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvSesionesUsuario.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvSesionesUsuario.EnableHeadersVisualStyles = false;
             dgvSesionesUsuario.GridColor = Color.SeaGreen;
-            dgvSesionesUsuario.Location = new Point(7, 87);
+            dgvSesionesUsuario.Location = new Point(14, 57);
             dgvSesionesUsuario.Name = "dgvSesionesUsuario";
+            dgvSesionesUsuario.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dgvSesionesUsuario.RowHeadersWidth = 51;
-            dgvSesionesUsuario.Size = new Size(830, 418);
+            dgvSesionesUsuario.Size = new Size(1226, 319);
             dgvSesionesUsuario.TabIndex = 0;
             // 
             // groupBox1
@@ -77,7 +92,7 @@
             groupBox1.Controls.Add(btnEliminar);
             groupBox1.Font = new Font("Segoe UI", 12F);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(866, 87);
+            groupBox1.Location = new Point(370, 427);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(247, 127);
             groupBox1.TabIndex = 1;
@@ -126,9 +141,9 @@
             groupBox2.Controls.Add(btnModificar);
             groupBox2.Font = new Font("Segoe UI", 12F);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(866, 248);
+            groupBox2.Location = new Point(777, 394);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(247, 257);
+            groupBox2.Size = new Size(299, 182);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Modificar sesión";
@@ -138,7 +153,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(8, 113);
+            label3.Location = new Point(38, 87);
             label3.Name = "label3";
             label3.Size = new Size(63, 28);
             label3.TabIndex = 5;
@@ -149,7 +164,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(32, 44);
+            label2.Location = new Point(58, 36);
             label2.Name = "label2";
             label2.Size = new Size(31, 28);
             label2.TabIndex = 4;
@@ -157,15 +172,17 @@
             // 
             // numHorasModificacion
             // 
-            numHorasModificacion.Location = new Point(89, 107);
+            numHorasModificacion.Location = new Point(116, 85);
             numHorasModificacion.Name = "numHorasModificacion";
             numHorasModificacion.Size = new Size(134, 34);
             numHorasModificacion.TabIndex = 3;
+            numHorasModificacion.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numHorasModificacion.ValueChanged += numHorasModificacion_ValueChanged;
             // 
             // cbIDModificar
             // 
             cbIDModificar.FormattingEnabled = true;
-            cbIDModificar.Location = new Point(89, 36);
+            cbIDModificar.Location = new Point(116, 33);
             cbIDModificar.Name = "cbIDModificar";
             cbIDModificar.Size = new Size(134, 36);
             cbIDModificar.TabIndex = 2;
@@ -175,7 +192,7 @@
             btnModificar.BackColor = Color.SeaGreen;
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.ForeColor = Color.White;
-            btnModificar.Location = new Point(89, 175);
+            btnModificar.Location = new Point(121, 135);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(129, 34);
             btnModificar.TabIndex = 1;
@@ -202,7 +219,7 @@
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1125, 35);
+            flowLayoutPanel1.Size = new Size(1324, 35);
             flowLayoutPanel1.TabIndex = 15;
             // 
             // SesionesUsuario
@@ -210,7 +227,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1125, 531);
+            ClientSize = new Size(1324, 588);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(dgvSesionesUsuario);

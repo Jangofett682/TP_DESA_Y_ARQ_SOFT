@@ -3,6 +3,7 @@ using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,10 +20,15 @@ namespace BLL
         private string email;
         private double saldoDisponible;
 
+        private bool esAdmin;
+
         public string JugadorUsuario { get => jugadorUsuario; set => jugadorUsuario = value; }
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public string Email { get => email; set => email = value; }
         public double SaldoDisponible { get => saldoDisponible; set => saldoDisponible = value; }
+        public bool EsAdmin { get => esAdmin; set => esAdmin = value; }
+
+
 
         public static SesionJugador GetInstance()
         {
@@ -43,6 +49,7 @@ namespace BLL
                     this.nombreUsuario = jugador.NombreApellido;
                     this.email = jugador.Mail;
                     this.saldoDisponible = jugador.SaldoDisponible;
+                    this.esAdmin = jugador.EsAdmin;
                 }
             }
             catch(Exception ex)
@@ -59,6 +66,7 @@ namespace BLL
                 nombreUsuario = null;
                 email = null;
                 saldoDisponible = 0;
+                esAdmin = false;
             }
             catch(Exception ex)
             {

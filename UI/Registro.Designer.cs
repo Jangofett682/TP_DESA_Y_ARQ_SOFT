@@ -47,7 +47,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(32, 94);
+            label1.Location = new Point(117, 93);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(79, 28);
@@ -59,7 +59,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(32, 277);
+            label2.Location = new Point(41, 243);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(164, 28);
@@ -71,7 +71,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(32, 178);
+            label3.Location = new Point(146, 165);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(50, 28);
@@ -83,7 +83,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(32, 372);
+            label5.Location = new Point(35, 318);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(161, 28);
@@ -103,7 +103,7 @@
             // txtMail
             // 
             txtMail.Font = new Font("Segoe UI", 12F);
-            txtMail.Location = new Point(227, 178);
+            txtMail.Location = new Point(228, 165);
             txtMail.Margin = new Padding(4);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(280, 34);
@@ -112,7 +112,7 @@
             // txtNombreApellido
             // 
             txtNombreApellido.Font = new Font("Segoe UI", 12F);
-            txtNombreApellido.Location = new Point(227, 277);
+            txtNombreApellido.Location = new Point(227, 243);
             txtNombreApellido.Margin = new Padding(4);
             txtNombreApellido.Name = "txtNombreApellido";
             txtNombreApellido.Size = new Size(280, 34);
@@ -121,7 +121,7 @@
             // txtSaldo
             // 
             txtSaldo.Font = new Font("Segoe UI", 12F);
-            txtSaldo.Location = new Point(227, 372);
+            txtSaldo.Location = new Point(227, 318);
             txtSaldo.Margin = new Padding(4);
             txtSaldo.Name = "txtSaldo";
             txtSaldo.Size = new Size(280, 34);
@@ -133,7 +133,7 @@
             btnRegistrarse.FlatStyle = FlatStyle.Flat;
             btnRegistrarse.Font = new Font("Segoe UI", 12F);
             btnRegistrarse.ForeColor = Color.White;
-            btnRegistrarse.Location = new Point(338, 462);
+            btnRegistrarse.Location = new Point(365, 398);
             btnRegistrarse.Margin = new Padding(4);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(170, 53);
@@ -147,7 +147,7 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 12F);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(19, 462);
+            btnCancelar.Location = new Point(35, 398);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(170, 53);
@@ -172,7 +172,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(568, 543);
+            ClientSize = new Size(568, 474);
             Controls.Add(label6);
             Controls.Add(btnCancelar);
             Controls.Add(btnRegistrarse);

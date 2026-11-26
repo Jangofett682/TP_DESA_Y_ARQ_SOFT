@@ -30,6 +30,12 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             groupBox1 = new GroupBox();
             dgvServidores = new DataGridView();
@@ -54,6 +60,7 @@
             lblUsuarioNombre = new Label();
             lblSaldoActual = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            btnCatalogoJuegos = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServidores).BeginInit();
             groupBox2.SuspendLayout();
@@ -76,30 +83,52 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Servidores";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // dgvServidores
             // 
+            dgvServidores.AllowUserToAddRows = false;
+            dgvServidores.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvServidores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvServidores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvServidores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvServidores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvServidores.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dgvServidores.BackgroundColor = Color.FromArgb(64, 64, 64);
             dgvServidores.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.SeaGreen;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvServidores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvServidores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvServidores.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvServidores.EnableHeadersVisualStyles = false;
             dgvServidores.GridColor = Color.SeaGreen;
             dgvServidores.Location = new Point(8, 36);
             dgvServidores.Margin = new Padding(4);
             dgvServidores.Name = "dgvServidores";
             dgvServidores.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvServidores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
-            dgvServidores.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dgvServidores.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvServidores.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvServidores.Size = new Size(822, 614);
             dgvServidores.TabIndex = 0;
             // 
@@ -121,19 +150,50 @@
             // 
             // dgvJuegos
             // 
-            dgvJuegos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvJuegos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvJuegos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvJuegos.AllowUserToAddRows = false;
+            dgvJuegos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.SeaGreen;
+            dgvJuegos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dgvJuegos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvJuegos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dgvJuegos.BackgroundColor = Color.FromArgb(64, 64, 64);
             dgvJuegos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.SelectionForeColor = Color.SeaGreen;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvJuegos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvJuegos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Bahnschrift SemiCondensed", 16.2F);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvJuegos.DefaultCellStyle = dataGridViewCellStyle7;
+            dgvJuegos.EnableHeadersVisualStyles = false;
             dgvJuegos.GridColor = Color.SeaGreen;
             dgvJuegos.Location = new Point(21, 36);
             dgvJuegos.Margin = new Padding(4);
             dgvJuegos.Name = "dgvJuegos";
             dgvJuegos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvJuegos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            dgvJuegos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle8.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgvJuegos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dgvJuegos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvJuegos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvJuegos.Size = new Size(695, 614);
             dgvJuegos.TabIndex = 1;
             // 
@@ -195,11 +255,11 @@
             groupBox3.Controls.Add(cbJuegoIDAlta);
             groupBox3.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(1589, 113);
+            groupBox3.Location = new Point(1596, 92);
             groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4);
-            groupBox3.Size = new Size(484, 474);
+            groupBox3.Size = new Size(477, 510);
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = "Nueva sesión";
@@ -386,6 +446,7 @@
             flowLayoutPanel1.Controls.Add(txtVerSesionesUsuario);
             flowLayoutPanel1.Controls.Add(txtCargarSaldo);
             flowLayoutPanel1.Controls.Add(btnCambiarCuenta);
+            flowLayoutPanel1.Controls.Add(btnCatalogoJuegos);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -393,6 +454,21 @@
             flowLayoutPanel1.Size = new Size(2086, 45);
             flowLayoutPanel1.TabIndex = 14;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
+            // btnCatalogoJuegos
+            // 
+            btnCatalogoJuegos.BackColor = Color.FromArgb(64, 64, 64);
+            btnCatalogoJuegos.FlatStyle = FlatStyle.Flat;
+            btnCatalogoJuegos.Font = new Font("Segoe UI", 12F);
+            btnCatalogoJuegos.ForeColor = Color.White;
+            btnCatalogoJuegos.Location = new Point(1321, 4);
+            btnCatalogoJuegos.Margin = new Padding(4);
+            btnCatalogoJuegos.Name = "btnCatalogoJuegos";
+            btnCatalogoJuegos.Size = new Size(186, 39);
+            btnCatalogoJuegos.TabIndex = 12;
+            btnCatalogoJuegos.Text = "Catálogo";
+            btnCatalogoJuegos.UseVisualStyleBackColor = false;
+            btnCatalogoJuegos.Click += btnCatalogoJuegos_Click;
             // 
             // Form1
             // 
@@ -451,5 +527,6 @@
         private Label lblUsuarioNombre;
         private Label lblSaldoActual;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button btnCatalogoJuegos;
     }
 }

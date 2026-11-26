@@ -13,6 +13,14 @@ namespace Entity
         private string mail;
         private double saldoDisponible;
 
+        public bool EsAdmin
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(NombreUsuario) && (NombreUsuario.Equals("admin", StringComparison.OrdinalIgnoreCase));
+            }
+        }
+
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public string NombreApellido { get => nombreApellido; set => nombreApellido = value; }
         public string Mail { get => mail; set => mail = value; }

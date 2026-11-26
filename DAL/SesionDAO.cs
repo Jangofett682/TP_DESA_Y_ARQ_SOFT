@@ -46,8 +46,8 @@ namespace DAL
                     var sesionBD = SesionMapper.Map(sesion);
                     RegistrarCapacidad(db, sesion, sesionBD);
                     db.Sesión.Add(sesionBD);
-                    db.SaveChanges();
                 }
+                db.SaveChanges();
             });
         }
 

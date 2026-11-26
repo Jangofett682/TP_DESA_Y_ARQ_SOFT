@@ -63,7 +63,7 @@
             btnIniciarSesion.ForeColor = Color.White;
             btnIniciarSesion.Location = new Point(219, 158);
             btnIniciarSesion.Name = "btnIniciarSesion";
-            btnIniciarSesion.Size = new Size(140, 37);
+            btnIniciarSesion.Size = new Size(140, 43);
             btnIniciarSesion.TabIndex = 4;
             btnIniciarSesion.Text = "Iniciar sesión";
             btnIniciarSesion.UseVisualStyleBackColor = false;
@@ -77,7 +77,7 @@
             btnRegistrarse.ForeColor = Color.White;
             btnRegistrarse.Location = new Point(64, 158);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(140, 37);
+            btnRegistrarse.Size = new Size(140, 43);
             btnRegistrarse.TabIndex = 5;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = false;

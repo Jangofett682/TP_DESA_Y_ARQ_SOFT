@@ -54,7 +54,7 @@ namespace UI
                 cbIDModificar.ValueMember = "idSesion";
                 cbIDModificar.DisplayMember = "idSesion";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al cargar lista de ID para modificar");
             }
@@ -96,6 +96,8 @@ namespace UI
                 sesionBusiness.Eliminar(Convert.ToInt32(cbIDEliminar.SelectedValue));
                 MessageBox.Show($"Sesión eliminada exitosamente");
                 CargarSesionesUsuario();
+                CargarComboEliminar();
+                CargarComboModificar();
             }
             catch (Exception ex)
             {
@@ -117,14 +119,21 @@ namespace UI
                 MessageBox.Show("Sesion modificada exitosamente");
                 CargarSesionesUsuario();
                 CargarMensajeBienvenida();
+                CargarComboModificar();
+                CargarComboEliminar();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al modificar sesión");
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numHorasModificacion_ValueChanged(object sender, EventArgs e)
         {
 
         }

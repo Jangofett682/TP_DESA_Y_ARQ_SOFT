@@ -26,6 +26,24 @@ namespace PlantillaCapas
             DeshabilitarCampoPrecio();
             CargarComboJuegos();
             CargarServidores();
+            MostrarOpcionesAdmin();
+        }
+
+        private void MostrarOpcionesAdmin()
+        {
+            try
+            {
+                bool esAdmin = SesionJugador.GetInstance().EsAdmin;
+
+                groupBox3.Visible = !esAdmin;
+                txtCargarSaldo.Enabled = !esAdmin;
+                txtVerSesionesUsuario.Enabled = !esAdmin;
+                btnCatalogoJuegos.Visible = esAdmin;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en mostrar opciones admin");
+            }
         }
 
         private void DeshabilitarCampoPrecio()
@@ -123,6 +141,7 @@ namespace PlantillaCapas
         {
             try
             {
+                SesionJugador.GetInstance().CerrarSesion();
                 InicioSesion inicio = new InicioSesion();
                 inicio.Show();
                 this.Close();
@@ -260,6 +279,30 @@ namespace PlantillaCapas
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCatalogoJuegos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (CatalogoJuegos catalogo = new CatalogoJuegos())
+                {
+                    if (catalogo.ShowDialog() == DialogResult.OK)
+                    {
+                        CargarJuegos();
+                        CargarComboJuegos();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error en mostrar catálogo de juegos");
+            }
         }
     }
 }
