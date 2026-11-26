@@ -38,7 +38,6 @@
             txtNombreApellido = new TextBox();
             txtSaldo = new TextBox();
             btnRegistrarse = new Button();
-            btnCancelar = new Button();
             label6 = new Label();
             SuspendLayout();
             // 
@@ -133,27 +132,14 @@
             btnRegistrarse.FlatStyle = FlatStyle.Flat;
             btnRegistrarse.Font = new Font("Segoe UI", 12F);
             btnRegistrarse.ForeColor = Color.White;
-            btnRegistrarse.Location = new Point(365, 398);
+            btnRegistrarse.Location = new Point(228, 399);
             btnRegistrarse.Margin = new Padding(4);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(170, 53);
+            btnRegistrarse.Size = new Size(279, 53);
             btnRegistrarse.TabIndex = 10;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = false;
             btnRegistrarse.Click += btnRegistrarse_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Segoe UI", 12F);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(35, 398);
-            btnCancelar.Margin = new Padding(4);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(170, 53);
-            btnCancelar.TabIndex = 11;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -174,7 +160,6 @@
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(568, 474);
             Controls.Add(label6);
-            Controls.Add(btnCancelar);
             Controls.Add(btnRegistrarse);
             Controls.Add(txtSaldo);
             Controls.Add(txtNombreApellido);
@@ -206,7 +191,6 @@
         private TextBox txtNombreApellido;
         private TextBox txtSaldo;
         private Button btnRegistrarse;
-        private Button btnCancelar;
         private Label label6;
     }
 }

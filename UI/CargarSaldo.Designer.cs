@@ -41,11 +41,11 @@
             // numMonto
             // 
             numMonto.Font = new Font("Segoe UI", 12F);
-            numMonto.Location = new Point(179, 85);
+            numMonto.Location = new Point(209, 83);
             numMonto.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numMonto.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numMonto.Name = "numMonto";
-            numMonto.Size = new Size(150, 34);
+            numMonto.Size = new Size(129, 34);
             numMonto.TabIndex = 0;
             numMonto.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -83,9 +83,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(22, 85);
             label1.Name = "label1";
-            label1.Size = new Size(151, 28);
+            label1.Size = new Size(182, 28);
             label1.TabIndex = 3;
-            label1.Text = "Monto a cargar:";
+            label1.Text = "Monto a cargar:    $";
             // 
             // lblUsuarioActivo
             // 

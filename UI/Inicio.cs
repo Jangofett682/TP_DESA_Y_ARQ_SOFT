@@ -39,6 +39,7 @@ namespace PlantillaCapas
                 txtCargarSaldo.Enabled = !esAdmin;
                 txtVerSesionesUsuario.Enabled = !esAdmin;
                 btnCatalogoJuegos.Visible = esAdmin;
+                lblSaldoActual.Visible = !esAdmin;
             }
             catch (Exception ex)
             {
