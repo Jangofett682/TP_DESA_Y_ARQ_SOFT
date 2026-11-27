@@ -1,0 +1,399 @@
+' CloudGaming — Diagramas de clases del código actual.
+' Referencia de sintaxis: https://plantuml.com/class-diagram
+' Cada bloque @startuml / @enduml genera un diagrama independiente.
+' Para exportar los cinco diagramas: plantuml -charset UTF-8 -tsvg clases-cloudgaming.puml
+' Los nombres y tipos respetan el código, incluyendo getAll, Sesión y double/decimal.
+' No se duplican campos de respaldo de propiedades ni código generado de WinForms.
+
+@startuml 01_entidades
+title CloudGaming — Capa de entidades
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor #B0E3E6
+skinparam classBorderColor #0E8088
+skinparam ArrowColor #000000
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+hide circle
+skinparam classFontStyle bold
+skinparam classAttributeFontStyle plain
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 65
+skinparam ranksep 95
+class JugadorEntity {
+  + EsAdmin : bool {readOnly}
+  + NombreUsuario : string
+  + NombreApellido : string
+  + Mail : string
+  + SaldoDisponible : double
+  --
+
+}
+class SesionEntity {
+  + IdSesion : int
+  + JuegoId : int
+  + ServidorId : int
+  + NombreUsuario : string
+  + HorasReservadas : double
+  + MontoTotal : double
+  + InicioUtc : DateTime?
+  + FinUtc : DateTime?
+  + PuntosConsumidos : int?
+  + CapacidadPuntosServidor : int
+  + PrecioHoraServidor : double
+  + PorcentajeDescuento : double
+  --
+
+}
+class JuegoEntity {
+  + IdJuego : int
+  + Titulo : string
+  + Resolucion : string
+  + Configuracion : string
+  + CostoPuntos : int
+  --
+
+}
+class ServidorEntity {
+  + IdServidor : int
+  + Gpu : string
+  + Cpu : string
+  + Ram : string
+  + PrecioHora : double
+  + PuntosOcupados : int
+  + CapacidadPuntos : int
+  + PuntosLibres : int
+  + Estado : string
+  --
+
+}
+JugadorEntity "1" -right-> "0..*" SesionEntity
+SesionEntity "0..*" <-right- "1" JuegoEntity
+SesionEntity "0..*" <-right- "1" ServidorEntity
+ServidorEntity -[hidden]down- JuegoEntity
+
+@enduml
+
+@startuml 02_mapper
+title CloudGaming — Capa Mapper
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor #B0E3E6
+skinparam classBorderColor #0E8088
+skinparam ArrowColor #000000
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+hide circle
+skinparam classFontStyle bold
+skinparam classAttributeFontStyle plain
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 65
+skinparam ranksep 95
+class JuegoMapper {
+
+  --
+  + {static} Map(juego : Juego) : JuegoEntity
+  + {static} Map(juego : JuegoEntity) : Juego
+  + {static} Map(listaJuegos : List<Juego>) : List<JuegoEntity>
+  + {static} MapBD(listaJuegos : List<JuegoEntity>) : List<Juego>
+}
+class JugadorMapper {
+
+  --
+  + {static} Map(jugador : Jugador) : JugadorEntity
+  + {static} Map(jugador : JugadorEntity) : Jugador
+  + {static} Map(listaJugadores : List<Jugador>) : List<JugadorEntity>
+  + {static} MapBD(listaJugadores : List<JugadorEntity>) : List<Jugador>
+}
+class ServidorMapper {
+
+  --
+  + {static} Map(servidor : Servidor) : ServidorEntity
+  + {static} Map(servidor : ServidorEntity) : Servidor
+  + {static} Map(listaServidores : List<Servidor>) : List<ServidorEntity>
+  + {static} MapBD(listaServidores : List<ServidorEntity>) : List<Servidor>
+}
+class SesionMapper {
+
+  --
+  + {static} Map(sesion : Sesión) : SesionEntity
+  + {static} CalcularPorcentajeHoras(horas : double) : double
+  + {static} Map(sesion : SesionEntity) : Sesión
+  + {static} Map(listaSesiones : List<Sesión>) : List<SesionEntity>
+  + {static} MapBD(listaSesiones : List<SesionEntity>) : List<Sesión>
+}
+class JuegoEntity {
+}
+class JugadorEntity {
+}
+class ServidorEntity {
+}
+class SesionEntity {
+}
+class "Juego" as EFJuego {
+}
+class "Jugador" as EFJugador {
+}
+class "Servidor" as EFServidor {
+}
+class "Sesión" as EFSesion {
+}
+JuegoMapper ..> JuegoEntity : convierte
+JuegoMapper ..> EFJuego : convierte
+JugadorMapper ..> JugadorEntity : convierte
+JugadorMapper ..> EFJugador : convierte
+ServidorMapper ..> ServidorEntity : convierte
+ServidorMapper ..> EFServidor : convierte
+SesionMapper ..> SesionEntity : convierte
+SesionMapper ..> EFSesion : convierte
+
+@enduml
+
+@startuml 03_negocio
+title CloudGaming — Capa de lógica de negocio (BLL)
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor #B0E3E6
+skinparam classBorderColor #0E8088
+skinparam ArrowColor #000000
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+hide circle
+skinparam classFontStyle bold
+skinparam classAttributeFontStyle plain
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 65
+skinparam ranksep 95
+class JuegoBusiness {
+  - juegoDAO : JuegoDAO
+  --
+  + GetAll() : List<JuegoEntity>
+  + Agregar(nuevoJuego : JuegoEntity) : void
+  + AltaConjunta(listaJuegos : List<JuegoEntity>) : void
+  + Eliminar(id : int) : void
+}
+class JugadorBusiness {
+  - jugadorDAO : JugadorDAO
+  --
+  + GetAll() : List<JugadorEntity>
+  + Agregar(nuevoJugador : JugadorEntity) : void
+  + Autenticar(nombreUsuario : string) : JugadorEntity
+  + CargarSaldo(nombreUsuario : string, montoACargar : double) : void
+}
+class ServidorBusiness {
+  - servidorDAO : ServidorDAO
+  - juegoDAO : JuegoDAO
+  --
+  - ObtenerGamaGPU(gpu : string) : int
+  - ExtraerGB(registro : string) : int
+  - ObtenerGamaCPU(gpu : string) : int
+  + EsCompatible(servidor : ServidorEntity, juego : JuegoEntity) : bool
+  + ObtenerCapacidadPuntos(servidor : ServidorEntity) : int
+  + {static} ObtenerCostoPuntos(juego : JuegoEntity) : int
+  + ObtenerServidoresCompatiblesDisponibles(idJuego : int, incluirSinCupo : bool = false) : List<ServidorEntity>
+  + GetAll() : List<ServidorEntity>
+}
+class SesionBusiness {
+  - aplicacionDAO : SesionDAO
+  - servidorDAO : ServidorDAO
+  - juegoDAO : JuegoDAO
+  - jugadorDAO : JugadorDAO
+  - servidorBusiness : ServidorBusiness
+  - sesionDAO : SesionDAO
+  --
+  + GetAll() : List<SesionEntity>
+  + ValidarReglasNegocio(sesion : SesionEntity) : void
+  + GuardarSesion(nuevaSesion : SesionEntity) : void
+  - PrepararCapacidad(sesion : SesionEntity) : ServidorEntity
+  + GuardarConjunto(listaSesiones : List<SesionEntity>) : void
+  + Eliminar(id : int) : void
+  + Modificar(sesionModificada : SesionEntity) : void
+  + ObtenerSesionesUsuarioActivo() : List<SesionEntity>
+}
+class SesionJugador {
+  - {static} instancia : SesionJugador
+  + JugadorUsuario : string
+  + NombreUsuario : string
+  + Email : string
+  + SaldoDisponible : double
+  + EsAdmin : bool
+  --
+  + {static} GetInstance() : SesionJugador
+  + IniciarSesion(jugador : JugadorEntity) : void
+  + CerrarSesion() : void
+  + ActualizarSaldoDisponible(nuevoSaldo : double) : void
+}
+SesionBusiness --> ServidorBusiness : servidorBusiness
+SesionBusiness ..> SesionJugador : actualiza / consulta
+JugadorBusiness ..> SesionJugador : actualiza saldo
+JuegoBusiness ..> ServidorBusiness : ObtenerCostoPuntos()
+
+@enduml
+
+@startuml 04_acceso_datos
+title CloudGaming — Capa de acceso a datos (DAL)
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor #B0E3E6
+skinparam classBorderColor #0E8088
+skinparam ArrowColor #000000
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+hide circle
+skinparam classFontStyle bold
+skinparam classAttributeFontStyle plain
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 65
+skinparam ranksep 95
+class JuegoDAO {
+
+  --
+  + getAll() : List<JuegoEntity>
+  + BuscarPorID(id : int) : JuegoEntity
+  + BuscarPorTitulo(titulo : string) : JuegoEntity
+  + Guardar(juego : JuegoEntity) : void
+  + Eliminar(id : int) : void
+}
+class JugadorDAO {
+
+  --
+  + getAll() : List<JugadorEntity>
+  + Guardar(jugador : JugadorEntity) : void
+  + Autenticar(nombreUsuario : string) : JugadorEntity
+  + ActualizarSaldo(nombreUsuario : string, nuevoSaldo : double) : void
+}
+class ServidorDAO {
+
+  --
+  + getAll() : List<ServidorEntity>
+  + ObtenerServidoresConOcupacion(ahoraUtc : DateTime) : List<ServidorEntity>
+  + ObtenerPorID(idServidor : int) : ServidorEntity
+}
+class SesionDAO {
+  + servidorDAO : ServidorDAO
+  --
+  + getAll() : List<SesionEntity>
+  + AltaConjunta(listaSesiones : List<SesionEntity>) : void
+  + RegistrarSesionSaldo(sesion : SesionEntity, nuevoSaldo : double) : void
+  - RegistrarCapacidad(db : CloudGamingContext, sesion : SesionEntity, sesionBD : Sesión) : void
+  - ValidarPuntos(db : CloudGamingContext, sesion : Sesión, inicio : DateTime, fin : DateTime, capacidad : int) : void
+  + BuscarPorID(id : int) : SesionEntity
+  + Eliminar(id : int) : void
+  + Modificar(sesionModificada : SesionEntity, nuevoSaldo : double) : void
+  + ObtenerPorUsuario(nombreUsuario : string) : List<SesionEntity>
+}
+class DBConfigurations <<static>> {
+
+  --
+  + {static} GetConnectionString() : string
+}
+class CloudGamingContext {
+  + Juego : DbSet<Juego>
+  + Jugador : DbSet<Jugador>
+  + Servidor : DbSet<Servidor>
+  + Sesión : DbSet<Sesión>
+  --
+  + CloudGamingContext()
+  + CloudGamingContext(options : DbContextOptions<CloudGamingContext>)
+  + {static} EjecutarTransaccion(operacion : Action<CloudGamingContext>) : void
+  # OnConfiguring(optionsBuilder : DbContextOptionsBuilder) : void
+  # OnModelCreating(modelBuilder : ModelBuilder) : void
+}
+class DbContext <<EF Core>>
+DbContext <|-- CloudGamingContext
+CloudGamingContext ..> DBConfigurations : GetConnectionString()
+SesionDAO --> ServidorDAO : servidorDAO
+JuegoDAO ..> CloudGamingContext : consulta / persiste
+class JuegoMapper <<referencia>> {
+}
+JuegoDAO ..> JuegoMapper : mapea
+JugadorDAO ..> CloudGamingContext : consulta / persiste
+class JugadorMapper <<referencia>> {
+}
+JugadorDAO ..> JugadorMapper : mapea
+ServidorDAO ..> CloudGamingContext : consulta / persiste
+class ServidorMapper <<referencia>> {
+}
+ServidorDAO ..> ServidorMapper : mapea
+SesionDAO ..> CloudGamingContext : consulta / persiste
+class SesionMapper <<referencia>> {
+}
+SesionDAO ..> SesionMapper : mapea
+
+@enduml
+
+@startuml 05_modelo_ef
+title CloudGaming — Clases de persistencia (Entity Framework)
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam classBackgroundColor #B0E3E6
+skinparam classBorderColor #0E8088
+skinparam ArrowColor #000000
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+hide circle
+skinparam classFontStyle bold
+skinparam classAttributeFontStyle plain
+skinparam roundcorner 0
+skinparam linetype ortho
+skinparam nodesep 65
+skinparam ranksep 95
+class "Juego" as EFJuego {
+  + IdJuego : int
+  + Titulo : string
+  + Resolucion : string
+  + Configuracion : string
+  + Sesión : ICollection<Sesión>
+  --
+
+}
+class "Jugador" as EFJugador {
+  + NombreUsuario : string
+  + NombreApellido : string
+  + Mail : string
+  + SaldoDisponible : decimal
+  + Sesión : ICollection<Sesión>
+  --
+
+}
+class "Servidor" as EFServidor {
+  + IdServidor : int
+  + Gpu : string
+  + Cpu : string
+  + Ram : string
+  + PrecioHora : decimal
+  + Estado : string
+  + Sesión : ICollection<Sesión>
+  --
+
+}
+class "Sesión" as EFSesion {
+  + IdSesion : int
+  + JuegoId : int
+  + ServidorId : int
+  + NombreUsuario : string
+  + HorasReservadas : decimal
+  + MontoTotal : decimal
+  + InicioUtc : DateTime?
+  + FinUtc : DateTime?
+  + PuntosConsumidos : int?
+  + Juego : Juego
+  + NombreUsuarioNavigation : Jugador
+  + Servidor : Servidor
+  --
+
+}
+EFJugador "1" -- "0..*" EFSesion : NombreUsuarioNavigation / Sesión
+EFJuego "1" -- "0..*" EFSesion : Juego / Sesión
+EFServidor "1" -- "0..*" EFSesion : Servidor / Sesión
+
+@enduml
