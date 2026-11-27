@@ -15,7 +15,7 @@ namespace DAL
 {
     public class SesionDAO
     {
-        public ServidorDAO servidorDAO = new ServidorDAO();
+
         public List<SesionEntity> getAll()
         {
             try
@@ -39,10 +39,15 @@ namespace DAL
         //Alta de varias sesiones
         public void AltaConjunta(List<SesionEntity> listaSesiones)
         {
+            
             CloudGamingContext.EjecutarTransaccion(db =>
             {
                 foreach (var sesion in listaSesiones)
                 {
+                    if (sesion == null)
+                    {
+                        throw new Exception("La lista contiene elementos incompletos");
+                    }
                     var sesionBD = SesionMapper.Map(sesion);
                     RegistrarCapacidad(db, sesion, sesionBD);
                     db.Sesión.Add(sesionBD);
@@ -59,6 +64,10 @@ namespace DAL
                 RegistrarCapacidad(db, sesion, nuevaSesionBD);
 
                 var jugadorBD = db.Jugador.FirstOrDefault(j => j.NombreUsuario == sesion.NombreUsuario);
+                if(jugadorBD == null)
+                {
+                    throw new InvalidOperationException("El usuario no existe");
+                }
                 if (jugadorBD != null)
                 {
                     decimal saldo = Convert.ToDecimal(nuevoSaldo);

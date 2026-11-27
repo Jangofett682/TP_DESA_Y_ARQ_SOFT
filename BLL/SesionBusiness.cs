@@ -12,7 +12,6 @@ namespace BLL
 {
     public class SesionBusiness
     {
-        SesionDAO aplicacionDAO = new SesionDAO();
         ServidorDAO servidorDAO = new ServidorDAO();
         JuegoDAO juegoDAO = new JuegoDAO();
         JugadorDAO jugadorDAO = new JugadorDAO();
@@ -20,30 +19,29 @@ namespace BLL
         ServidorBusiness servidorBusiness = new ServidorBusiness();
 
         SesionDAO sesionDAO = new SesionDAO();
+
+
+        private double CalcularPorcentajeDescuento(double horas)
+        {
+            if (horas >= 10)
+            {
+                return 20;
+            }
+
+            if (horas >= 5)
+            {
+                return 10;
+            }
+
+            return 0;
+        }
+
         public List<SesionEntity> GetAll()
         {
             try
             {
                 //Obtengo la lista de DAL
-                List<SesionEntity> listaSesiones = aplicacionDAO.getAll();
-
-                //Recorro cada sesión en la lista y aplico reglas
-                foreach (var sesion in listaSesiones)
-                {
-                    //Si el jugador tiene más de 25 mil de saldo o reserva más de 5 horas, 20% de descuento
-                    if (sesion.HorasReservadas >= 5)
-                    {
-                        sesion.PorcentajeDescuento = 15;
-                    }
-                    else
-                    {
-                        sesion.PorcentajeDescuento = 0;
-                    }
-                    //Cálculo general
-                    double total = sesion.HorasReservadas * sesion.PrecioHoraServidor;
-                    sesion.MontoTotal = total - (1 * (sesion.PorcentajeDescuento / 100.0));
-                }
-                return listaSesiones;
+                return sesionDAO.getAll();
             }
             catch (Exception ex)
             {
@@ -53,6 +51,11 @@ namespace BLL
 
         public void ValidarReglasNegocio(SesionEntity sesion)
         {
+            if (sesion == null)
+            {
+                throw new ArgumentNullException(nameof(sesion));
+            }
+
             sesion.HorasReservadas = Math.Round(sesion.HorasReservadas, 4);
             if (!double.IsFinite(sesion.HorasReservadas) || sesion.HorasReservadas <= 0)
             {
@@ -69,15 +72,29 @@ namespace BLL
             }
         }
 
+        private double CalcularMontoTotal(double horas, double precioHora,out double descuento)
+        {
+            if (!double.IsFinite(precioHora) || precioHora <= 0)
+            {
+                throw new Exception("El precio por hora no es válido");
+            }
+            descuento = CalcularPorcentajeDescuento(horas);
 
+            double total = horas * precioHora;
+
+            return total * (1 - descuento / 100.0);
+        }
         public void GuardarSesion(SesionEntity nuevaSesion)
         {
             try
             {
                 ValidarReglasNegocio(nuevaSesion);
                 ServidorEntity servidor = PrepararCapacidad(nuevaSesion);
-                double monto = nuevaSesion.HorasReservadas * servidor.PrecioHora;
+                double monto = CalcularMontoTotal(nuevaSesion.HorasReservadas,servidor.PrecioHora,out double descuento);
+
+                nuevaSesion.PrecioHoraServidor = servidor.PrecioHora;
                 nuevaSesion.MontoTotal = monto;
+                nuevaSesion.PorcentajeDescuento = descuento;
 
                 JugadorEntity jugador = jugadorDAO.Autenticar(nuevaSesion.NombreUsuario);
                 if (jugador.SaldoDisponible < monto)
@@ -87,7 +104,11 @@ namespace BLL
                 //Persistencia y actualización de singleton
                 double nuevoSaldo = jugador.SaldoDisponible - monto;
                 sesionDAO.RegistrarSesionSaldo(nuevaSesion, nuevoSaldo);
-                SesionJugador.GetInstance().ActualizarSaldoDisponible(jugadorDAO.Autenticar(nuevaSesion.NombreUsuario).SaldoDisponible);
+                if (SesionJugador.GetInstance().JugadorUsuario == nuevaSesion.NombreUsuario)
+                {
+                    SesionJugador.GetInstance()
+                        .ActualizarSaldoDisponible(nuevoSaldo);
+                }
             }
             catch(Exception ex)
             {
@@ -137,7 +158,7 @@ namespace BLL
                     ValidarReglasNegocio(sesion);
                     PrepararCapacidad(sesion);
                 }
-                aplicacionDAO.AltaConjunta(listaSesiones);
+                sesionDAO.AltaConjunta(listaSesiones);
             }
             catch (Exception ex)
             {
@@ -149,12 +170,12 @@ namespace BLL
         {
             try
             {
-                SesionEntity aplicacionExistente = aplicacionDAO.BuscarPorID(id);
+                SesionEntity aplicacionExistente = sesionDAO.BuscarPorID(id);
                 if (aplicacionExistente == null)
                 {
                     throw new Exception("ID no válido");
                 }
-                aplicacionDAO.Eliminar(id);
+                sesionDAO.Eliminar(id);
             }
             catch (Exception ex)
             {
@@ -167,7 +188,11 @@ namespace BLL
         {
             try
             {
-                SesionEntity sesionExistente = aplicacionDAO.BuscarPorID(sesionModificada.IdSesion);
+                if (sesionModificada == null)
+                {
+                    throw new ArgumentNullException(nameof(sesionModificada));
+                }
+                SesionEntity sesionExistente = sesionDAO.BuscarPorID(sesionModificada.IdSesion);
                 if (sesionExistente == null)
                 {
                     throw new Exception("ID no válido");
@@ -209,7 +234,7 @@ namespace BLL
                 //Calculo de nuevo saldo para el jugador
                 double nuevoSaldoJugador = jugadorExistente.SaldoDisponible - diferenciaMonto;
 
-                aplicacionDAO.Modificar(sesionModificada, nuevoSaldoJugador);
+                sesionDAO.Modificar(sesionModificada, nuevoSaldoJugador);
 
                 if (SesionJugador.GetInstance().JugadorUsuario == sesionExistente.NombreUsuario)
                 {

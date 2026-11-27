@@ -61,15 +61,15 @@ namespace BLL
             }
         }
 
-        private int ObtenerGamaCPU(string gpu)
+        private int ObtenerGamaCPU(string cpu)
         {
             try
             {
-                if (string.IsNullOrEmpty(gpu))
+                if (string.IsNullOrEmpty(cpu))
                 {
                     return 0;
                 }
-                string c = gpu.ToUpper();
+                string c = cpu.ToUpper();
                 //Nivel 4 - ultra
                 if (c.Contains("RYZEN 9"))
                 {
@@ -100,6 +100,10 @@ namespace BLL
         {
             try
             {
+                if (servidor == null || juego == null)
+                {
+                    return false;
+                }
                 string configuracionRequerida = juego.Configuracion.Trim().ToUpper();
                 int gamaGPUServidor = ObtenerGamaGPU(servidor.Gpu);
                 int gamaCPUServidor = ObtenerGamaCPU(servidor.Cpu);

@@ -108,7 +108,7 @@ namespace PlantillaCapas
         {
             try
             {
-                string usuarioActivo = SesionJugador.GetInstance().NombreUsuario;
+                string usuarioActivo = SesionJugador.GetInstance().JugadorUsuario;
                 double saldoActivo = SesionJugador.GetInstance().SaldoDisponible;
 
                 lblUsuario.Text = string.Empty;
@@ -265,6 +265,7 @@ namespace PlantillaCapas
         private void txtHorasReservadasAlta_TextChanged(object sender, EventArgs e)
         {
             CalcularMontoEstimado();
+            lblAvisoDescuentos.Visible = true;
         }
 
         private void ServidorIDAlta_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,10 +301,20 @@ namespace PlantillaCapas
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error en mostrar catálogo de juegos");
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

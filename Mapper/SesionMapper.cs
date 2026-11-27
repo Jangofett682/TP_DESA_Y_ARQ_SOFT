@@ -83,6 +83,10 @@ namespace Mapper
         {
             try
             {
+                if (sesion == null)
+                {
+                    return null;
+                }
                 return new Sesión
                 {
                     IdSesion = sesion.IdSesion,

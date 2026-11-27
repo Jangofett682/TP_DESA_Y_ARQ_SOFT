@@ -51,6 +51,11 @@ namespace DAL
                 {
                     var servidorBD = db.Servidor
                         .FirstOrDefault(s => s.IdServidor == idServidor);
+                    if (servidorBD == null)
+                    {
+                        return null;
+                    }
+
                     return ServidorMapper.Map(servidorBD);
                 }
             }

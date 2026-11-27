@@ -61,6 +61,7 @@
             lblSaldoActual = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnCatalogoJuegos = new Button();
+            lblAvisoDescuentos = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServidores).BeginInit();
             groupBox2.SuspendLayout();
@@ -82,7 +83,7 @@
             groupBox1.Size = new Size(830, 658);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Servidores";
+            groupBox1.Text = "Servidores compatibles";
             groupBox1.Enter += groupBox1_Enter;
             // 
             // dgvServidores
@@ -368,12 +369,13 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(102, 132);
+            label2.Location = new Point(4, 131);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(86, 28);
+            label2.Size = new Size(183, 28);
             label2.TabIndex = 2;
-            label2.Text = "Servidor";
+            label2.Text = "Servidor disponible";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -470,12 +472,27 @@
             btnCatalogoJuegos.UseVisualStyleBackColor = false;
             btnCatalogoJuegos.Click += btnCatalogoJuegos_Click;
             // 
+            // lblAvisoDescuentos
+            // 
+            lblAvisoDescuentos.AutoSize = true;
+            lblAvisoDescuentos.Font = new Font("Segoe UI", 12F);
+            lblAvisoDescuentos.ForeColor = Color.White;
+            lblAvisoDescuentos.Location = new Point(1605, 627);
+            lblAvisoDescuentos.Margin = new Padding(4, 0, 4, 0);
+            lblAvisoDescuentos.Name = "lblAvisoDescuentos";
+            lblAvisoDescuentos.Size = new Size(442, 84);
+            lblAvisoDescuentos.TabIndex = 11;
+            lblAvisoDescuentos.Text = "Se aplicara luego al monto un descuento del 15%\r\nsi son 5 horas o más.\r\nDel 20% si son 10 o más.";
+            lblAvisoDescuentos.Visible = false;
+            lblAvisoDescuentos.Click += label6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(2086, 779);
+            Controls.Add(lblAvisoDescuentos);
             Controls.Add(lblSaldoActual);
             Controls.Add(groupBox2);
             Controls.Add(lblUsuarioNombre);
@@ -528,5 +545,6 @@
         private Label lblSaldoActual;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnCatalogoJuegos;
+        private Label lblAvisoDescuentos;
     }
 }

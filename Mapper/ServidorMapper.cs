@@ -9,6 +9,10 @@ namespace Mapper
         {
             try
             {
+                if(servidor == null)
+                {
+                    return null;
+                }
                 return new ServidorEntity
                 {
                     IdServidor = servidor.IdServidor,
@@ -29,6 +33,10 @@ namespace Mapper
         {
             try
             {
+                if (servidor == null)
+                {
+                    return null;
+                }
                 return new Servidor
                 {
                     IdServidor = servidor.IdServidor,

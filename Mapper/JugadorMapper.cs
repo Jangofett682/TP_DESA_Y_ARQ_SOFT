@@ -21,7 +21,7 @@ namespace Mapper
                 return new JugadorEntity
                 {
                     NombreUsuario = jugador.NombreUsuario,
-                    NombreApellido = jugador.NombreUsuario,
+                    NombreApellido = jugador.NombreApellido,
                     Mail = jugador.Mail,
                     SaldoDisponible = Convert.ToDouble(jugador.SaldoDisponible),
                 };
@@ -36,6 +36,10 @@ namespace Mapper
         {
             try
             {
+                if (jugador == null)
+                {
+                    return null;
+                }
                 return new Jugador
                 {
                     NombreUsuario = jugador.NombreUsuario,

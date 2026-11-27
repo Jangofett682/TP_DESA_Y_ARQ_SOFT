@@ -15,6 +15,10 @@ namespace Mapper
         {
             try
             {
+                if (juego == null)
+                {
+                    throw new ArgumentNullException(nameof(juego));
+                }
                 return new JuegoEntity
                 {
                     IdJuego = juego.IdJuego,
@@ -33,6 +37,10 @@ namespace Mapper
         {
             try
             {
+                if (juego == null)
+                {
+                    throw new ArgumentNullException(nameof(juego));
+                }
                 return new Juego
                 {
                     IdJuego = juego.IdJuego,
